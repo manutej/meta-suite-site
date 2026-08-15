@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0b;--surface:#121214;--raised:#1a1a1d;--border:rgba(255,255,255,.08);--border-strong:rgba(255,255,255,.16);--text:#f5f5f4;--muted:#a1a1a8;--dim:#6b6b72;--gold:#d4a84b;--gold-hover:#e0b85c;--gold-dim:rgba(212,168,75,.18);--info:#7fb5f0;--thought:#b39bfb;--act:#d6a077;--confirm:#9fc99d;--font-sans:"Inter",system-ui,sans-serif;--font-mono:"JetBrains Mono",ui-monospace,monospace;--font-display:"Oswald","Inter",sans-serif;--ease:cubic-bezier(.22,1,.36,1);}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);font-feature-settings:"ss01","cv11";line-height:1.6;-webkit-font-smoothing:antialiased;}
+
+/* mobile hardening */
+html,body{max-width:100%;overflow-x:hidden;}
+img,svg,pre,code,table{max-width:100%;}
+svg{height:auto;}
+pre{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+@media (max-width:760px){
+  [style*="max-width:1080px"],[style*="max-width: 1080px"],
+  [style*="max-width:960px"],[style*="max-width: 960px"],
+  [style*="max-width:900px"],[style*="max-width: 900px"],
+  [style*="max-width:820px"],[style*="max-width: 820px"]{padding-left:18px!important;padding-right:18px!important;}
+  [style*="grid-template-columns:1fr auto"],[style*="grid-template-columns: 1fr auto"],
+  [style*="grid-template-columns:1fr 1fr"],[style*="grid-template-columns: 1fr 1fr"],
+  [style*="minmax(320px"],[style*="minmax(300px"]{grid-template-columns:1fr!important;}
+}
+@media (max-width:480px){
+  [style*="font-size:28px"],[style*="font-size: 28px"]{font-size:22px!important;}
+}
+</style>
+<script>
+(function(){document.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a[href]'):null;if(!a)return;var href=a.getAttribute('href')||'';if(!/\.dc\.html(\?|#|$)/.test(href))return;if(/^https?:\/\//i.test(href)||href.indexOf('//')===0)return;var q=window.location.search;if(!q)return;e.preventDefault();var h=href.indexOf('#'),hash=h>=0?href.slice(h):'',path=(h>=0?href.slice(0,h):href).split('?')[0];window.location.href=path+q+hash;},true);})();
+</script>
+</helmet>
+<div data-screen-label="meta-prompting skill page" style="background:var(--bg);color:var(--text);min-height:100vh;font-family:var(--font-sans);">
+
+  <!-- NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(10,10,11,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);">
+    <div style="max-width:820px;margin:0 auto;padding:0 28px;height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
+      <a href="Portfolio Hub.dc.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-family:var(--font-display);font-weight:600;font-size:19px;letter-spacing:.02em;">
+        <span style="width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold);"></span>META<span style="color:var(--gold);">·</span>SUITE
+      </a>
+      <a href="Overview.dc.html" style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);padding:9px 12px;border-radius:8px;text-decoration:none;transition:color .2s,background .2s;" style-hover="color:var(--text);background:var(--raised);">← all nine</a>
+    </div>
+  </header>
+
+  <!-- HEADER -->
+  <section style="max-width:820px;margin:0 auto;padding:56px 28px 8px;">
+    <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:var(--dim);margin-bottom:24px;">
+      <a href="Overview.dc.html" style="color:var(--dim);text-decoration:none;">overview</a> / <a href="Overview.dc.html#skills" style="color:var(--dim);text-decoration:none;">skills</a> / <span style="color:var(--muted);">meta-prompting</span>
+    </div>
+    <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Skill 01 · make axis</div>
+    <h1 style="font-family:var(--font-mono);font-weight:500;font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.01em;color:var(--gold);margin:0;">meta-prompting</h1>
+    <p style="color:var(--text);font-size:20px;line-height:1.5;margin:22px 0 0;max-width:56ch;">A reusable meta-prompt: how to think about a task <em style="font-style:italic;color:var(--gold);">category</em>, not a worked example.</p>
+  </section>
+
+  <!-- ANIMATION -->
+  <section style="max-width:820px;margin:0 auto;padding:32px 28px;">
+    <figure style="margin:0;border:1px solid var(--border);border-radius:16px;background:var(--surface);overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.4),0 12px 40px rgba(0,0,0,.35);">
+      <dc-import name="Meta-Prompting Recursion" hint-size="100%,420px" style="display:block;width:100%;height:420px;"></dc-import>
+      <figcaption style="border-top:1px solid var(--border);padding:12px 18px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--dim);">FIG — the scaffold runs through the model, which sharpens the scaffold, which runs again</figcaption>
+    </figure>
+  </section>
+
+  <!-- WHAT IT DOES -->
+  <section style="max-width:820px;margin:0 auto;padding:32px 28px;">
+    <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">// what it does</div>
+    <p style="color:var(--muted);font-size:17px;line-height:1.7;margin:0 0 16px;max-width:66ch;">Instead of writing a fresh prompt per task, write <strong style="color:var(--text);font-weight:600;">one reusable prompt</strong> that teaches a model how to think about a whole category of problems. Give it a <strong style="color:var(--text);font-weight:600;">scaffold — roles, steps, slots</strong> — not examples to imitate.</p>
+    <p style="color:var(--muted);font-size:17px;line-height:1.7;margin:0;max-width:66ch;">Because the scaffold is example-agnostic, a model can apply it to <strong style="color:var(--text);font-weight:600;">itself</strong>: refine the prompt, run it, fold the result back in. That recursion is the engine behind the whole suite — and the reason the loop gets sharper instead of merely repeating.</p>
+  </section>
+
+  <!-- THE SCAFFOLD -->
+  <section style="max-width:820px;margin:0 auto;padding:32px 28px;">
+    <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;">// the scaffold</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+      <div style="border:1px solid var(--border);border-radius:14px;padding:22px;background:var(--surface);">
+        <div style="font-family:var(--font-mono);font-size:15px;color:var(--gold);margin-bottom:10px;">roles</div>
+        <p style="color:var(--muted);font-size:14.5px;margin:0;line-height:1.6;">Who the model is being, and for whom. The stance it takes before it reads a single detail.</p>
+      </div>
+      <div style="border:1px solid var(--border);border-radius:14px;padding:22px;background:var(--surface);">
+        <div style="font-family:var(--font-mono);font-size:15px;color:var(--gold);margin-bottom:10px;">steps</div>
+        <p style="color:var(--muted);font-size:14.5px;margin:0;line-height:1.6;">The ordered moves for the category — perceive, reason, act, check — independent of any one task.</p>
+      </div>
+      <div style="border:1px solid var(--border);border-radius:14px;padding:22px;background:var(--surface);">
+        <div style="font-family:var(--font-mono);font-size:15px;color:var(--gold);margin-bottom:10px;">slots</div>
+        <p style="color:var(--muted);font-size:14.5px;margin:0;line-height:1.6;">The holes the specific task fills in. Leave them empty and the same prompt serves the whole category.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVOKE -->
+  <section style="max-width:820px;margin:0 auto;padding:32px 28px;">
+    <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">// invoke it</div>
+    <div style="background:var(--raised);border:1px solid var(--border-strong);border-radius:12px;padding:16px 18px;font-family:var(--font-mono);font-size:14px;color:var(--text);overflow-x:auto;margin-bottom:14px;"><span style="color:var(--gold);">/meta-prompting</span> <span style="color:var(--muted);">&lt;a task category you keep re-solving&gt;</span></div>
+    <div style="border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:0 12px 12px 0;padding:16px 20px;background:var(--gold-dim);">
+      <p style="color:var(--text);font-size:15px;margin:0;line-height:1.6;">Returns a reusable meta-prompt — roles, steps, and empty slots — plus a note on how to run it against itself. It never asks you clarifying questions; it infers the category and emits the structure.</p>
+    </div>
+  </section>
+
+  <!-- PROMISES -->
+  <section style="max-width:820px;margin:0 auto;padding:32px 28px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
+      <div style="border:1px solid var(--border);border-radius:12px;padding:16px 18px;background:var(--surface);"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold);margin-bottom:10px;"></span><div style="font-weight:600;font-size:14px;">Standalone</div><p style="color:var(--dim);font-size:13px;margin:6px 0 0;">No plugin deps.</p></div>
+      <div style="border:1px solid var(--border);border-radius:12px;padding:16px 18px;background:var(--surface);"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--confirm);margin-bottom:10px;"></span><div style="font-weight:600;font-size:14px;">Never interrogates</div><p style="color:var(--dim);font-size:13px;margin:6px 0 0;">It infers and produces.</p></div>
+      <div style="border:1px solid var(--border);border-radius:12px;padding:16px 18px;background:var(--surface);"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--info);margin-bottom:10px;"></span><div style="font-weight:600;font-size:14px;">Clear over clever</div><p style="color:var(--dim);font-size:13px;margin:6px 0 0;">You can read what it made.</p></div>
+      <div style="border:1px solid var(--border);border-radius:12px;padding:16px 18px;background:var(--surface);"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--thought);margin-bottom:10px;"></span><div style="font-weight:600;font-size:14px;">It compounds</div><p style="color:var(--dim);font-size:13px;margin:6px 0 0;">Leaves something reusable.</p></div>
+    </div>
+  </section>
+
+  <!-- REFERENCES -->
+  <section style="max-width:820px;margin:0 auto;padding:32px 28px;">
+    <div style="border:1px solid var(--border);border-radius:14px;padding:24px;background:var(--surface);">
+      <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">References</div>
+      <a href="https://arxiv.org/abs/2311.11482" target="_blank" rel="noopener" style="display:block;padding:12px 0;border-bottom:1px solid var(--border);font-size:15px;color:var(--muted);text-decoration:none;">Zhang, Yuan &amp; Yao — <em style="color:var(--text);">Meta Prompting for AI Systems</em> · <span style="font-family:var(--font-mono);font-size:13px;color:var(--gold);">arXiv:2311.11482</span> <span style="color:var(--dim);">(primary)</span></a>
+      <a href="https://arxiv.org/abs/2401.12954" target="_blank" rel="noopener" style="display:block;padding:12px 0;border-bottom:1px solid var(--border);font-size:15px;color:var(--muted);text-decoration:none;">Suzgun &amp; Kalai · <span style="font-family:var(--font-mono);font-size:13px;color:var(--info);">arXiv:2401.12954</span></a>
+      <a href="https://arxiv.org/abs/2312.06562" target="_blank" rel="noopener" style="display:block;padding:12px 0;border-bottom:1px solid var(--border);font-size:15px;color:var(--muted);text-decoration:none;">de Wynter et al. — <em style="color:var(--text);">On Meta-Prompting</em> · <span style="font-family:var(--font-mono);font-size:13px;color:var(--info);">arXiv:2312.06562</span></a>
+      <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:24px 0 2px;">In this suite</div>
+      <div style="padding:13px 0;font-size:15px;color:var(--muted);line-height:1.55;">The functor / monad / type-theory grounding lives in <span style="font-family:var(--font-mono);font-size:13px;color:var(--gold);">references/theory.md</span>; the ready-to-loop generator in <span style="font-family:var(--font-mono);font-size:13px;color:var(--gold);">references/meta-meta-prompt.md</span> — Recursive Meta Prompting modeled as a Writer monad.</div>
+    </div>
+  </section>
+
+  <!-- FOOTER NAV -->
+  <footer style="border-top:1px solid var(--border);margin-top:20px;">
+    <div style="max-width:820px;margin:0 auto;padding:28px 28px 56px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;">
+      <a href="Overview.dc.html#skills" style="font-family:var(--font-mono);font-size:13px;color:var(--muted);text-decoration:none;" style-hover="color:var(--gold);">← the nine</a>
+      <a href="#" style="font-family:var(--font-mono);font-size:13px;color:var(--gold);text-decoration:none;">next · meta-planning →</a>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

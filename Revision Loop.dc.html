@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0b;--surface:#121214;--raised:#1a1a1d;--border:rgba(255,255,255,.08);--border-strong:rgba(255,255,255,.16);--text:#f5f5f4;--muted:#a1a1a8;--dim:#6b6b72;--gold:#d4a84b;--gold-hover:#e0b85c;--gold-dim:rgba(212,168,75,.18);--info:#7fb5f0;--thought:#b39bfb;--act:#d6a077;--confirm:#9fc99d;--font-sans:"Inter",system-ui,sans-serif;--font-mono:"JetBrains Mono",ui-monospace,monospace;--font-display:"Oswald","Inter",sans-serif;--ease:cubic-bezier(.22,1,.36,1);}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);font-feature-settings:"ss01","cv11";}
+@keyframes nodeOn{0%{opacity:1}16%{opacity:1}24%{opacity:0}100%{opacity:0}}
+@keyframes ringBreathe{0%,100%{transform:scale(1)}50%{transform:scale(.986)}}
+[data-pausable]:hover,[data-pausable]:hover *{animation-play-state:paused !important;}
+
+/* mobile hardening */
+html,body{max-width:100%;overflow-x:hidden;}
+img,svg,pre,code,table{max-width:100%;}
+svg{height:auto;}
+pre{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+@media (max-width:760px){
+  [style*="max-width:1080px"],[style*="max-width: 1080px"],
+  [style*="max-width:960px"],[style*="max-width: 960px"],
+  [style*="max-width:900px"],[style*="max-width: 900px"],
+  [style*="max-width:820px"],[style*="max-width: 820px"]{padding-left:18px!important;padding-right:18px!important;}
+  [style*="grid-template-columns:1fr auto"],[style*="grid-template-columns: 1fr auto"],
+  [style*="grid-template-columns:1fr 1fr"],[style*="grid-template-columns: 1fr 1fr"],
+  [style*="minmax(320px"],[style*="minmax(300px"]{grid-template-columns:1fr!important;}
+}
+@media (max-width:480px){
+  [style*="font-size:28px"],[style*="font-size: 28px"]{font-size:22px!important;}
+}
+</style>
+</helmet>
+<div data-pausable="true" style="width:100%;height:100%;min-height:420px;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:8px;">
+<svg viewBox="0 0 560 400" width="100%" height="100%" style="max-width:560px;display:block;overflow:visible;" font-family="var(--font-sans)" aria-label="The revision loop: build, review, compound, context, sharper — and back, tightening each pass.">
+  <!-- breathing ring -->
+  <g style="transform-origin:280px 200px;animation:ringBreathe 9s var(--ease) infinite;">
+    <circle cx="280" cy="200" r="130" fill="none" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="2 7" stroke-linecap="round"></circle>
+    <circle cx="280" cy="200" r="130" fill="none" stroke="var(--gold-dim)" stroke-width="1"></circle>
+  </g>
+
+  <!-- node 0 · build (gold / make) -->
+  <g>
+    <circle cx="280" cy="70" r="7" fill="var(--raised)" stroke="var(--border-strong)" stroke-width="1.5"></circle>
+    <text x="280" y="52" text-anchor="middle" font-size="15" font-weight="600" fill="var(--dim)">build</text>
+    <g style="opacity:0;animation:nodeOn 10s linear infinite;animation-delay:0s;">
+      <circle cx="280" cy="70" r="15" fill="var(--gold)" opacity=".2"></circle>
+      <circle cx="280" cy="70" r="7" fill="var(--gold)" style="filter:drop-shadow(0 0 5px var(--gold));"></circle>
+      <text x="280" y="52" text-anchor="middle" font-size="15" font-weight="700" fill="var(--text)">build</text>
+    </g>
+  </g>
+
+  <!-- node 1 · review (info) -->
+  <g>
+    <circle cx="403.6" cy="159.8" r="7" fill="var(--raised)" stroke="var(--border-strong)" stroke-width="1.5"></circle>
+    <text x="424" y="167" text-anchor="start" font-size="15" font-weight="600" fill="var(--dim)">review</text>
+    <g style="opacity:0;animation:nodeOn 10s linear infinite;animation-delay:2s;">
+      <circle cx="403.6" cy="159.8" r="15" fill="var(--info)" opacity=".2"></circle>
+      <circle cx="403.6" cy="159.8" r="7" fill="var(--info)" style="filter:drop-shadow(0 0 5px var(--info));"></circle>
+      <text x="424" y="167" text-anchor="start" font-size="15" font-weight="700" fill="var(--text)">review</text>
+    </g>
+  </g>
+
+  <!-- node 2 · compound (confirm) -->
+  <g>
+    <circle cx="356.4" cy="305.2" r="7" fill="var(--raised)" stroke="var(--border-strong)" stroke-width="1.5"></circle>
+    <text x="376" y="318" text-anchor="start" font-size="15" font-weight="600" fill="var(--dim)">compound</text>
+    <g style="opacity:0;animation:nodeOn 10s linear infinite;animation-delay:4s;">
+      <circle cx="356.4" cy="305.2" r="15" fill="var(--confirm)" opacity=".2"></circle>
+      <circle cx="356.4" cy="305.2" r="7" fill="var(--confirm)" style="filter:drop-shadow(0 0 5px var(--confirm));"></circle>
+      <text x="376" y="318" text-anchor="start" font-size="15" font-weight="700" fill="var(--text)">compound</text>
+    </g>
+  </g>
+
+  <!-- node 3 · context (thought) -->
+  <g>
+    <circle cx="203.6" cy="305.2" r="7" fill="var(--raised)" stroke="var(--border-strong)" stroke-width="1.5"></circle>
+    <text x="184" y="318" text-anchor="end" font-size="15" font-weight="600" fill="var(--dim)">context</text>
+    <g style="opacity:0;animation:nodeOn 10s linear infinite;animation-delay:6s;">
+      <circle cx="203.6" cy="305.2" r="15" fill="var(--thought)" opacity=".2"></circle>
+      <circle cx="203.6" cy="305.2" r="7" fill="var(--thought)" style="filter:drop-shadow(0 0 5px var(--thought));"></circle>
+      <text x="184" y="318" text-anchor="end" font-size="15" font-weight="700" fill="var(--text)">context</text>
+    </g>
+  </g>
+
+  <!-- node 4 · sharper (gold / make) -->
+  <g>
+    <circle cx="156.4" cy="159.8" r="7" fill="var(--raised)" stroke="var(--border-strong)" stroke-width="1.5"></circle>
+    <text x="136" y="167" text-anchor="end" font-size="15" font-weight="600" fill="var(--dim)">sharper</text>
+    <g style="opacity:0;animation:nodeOn 10s linear infinite;animation-delay:8s;">
+      <circle cx="156.4" cy="159.8" r="15" fill="var(--gold)" opacity=".2"></circle>
+      <circle cx="156.4" cy="159.8" r="7" fill="var(--gold)" style="filter:drop-shadow(0 0 5px var(--gold));"></circle>
+      <text x="136" y="167" text-anchor="end" font-size="15" font-weight="700" fill="var(--text)">sharper</text>
+    </g>
+  </g>
+
+  <!-- center emblem -->
+  <text x="280" y="196" text-anchor="middle" font-family="var(--font-mono)" font-size="10" letter-spacing="3" fill="var(--gold)">REVISION LOOP</text>
+  <text x="280" y="224" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="21" fill="var(--text)">build. keep. sharpen.</text>
+  <text x="280" y="246" text-anchor="middle" font-size="12.5" fill="var(--muted)">the loop tightens each pass</text>
+</svg>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:560,&quot;height&quot;:420}}"></script>
+</body>
+</html>

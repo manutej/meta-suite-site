@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0b;--surface:#121214;--raised:#1a1a1d;--border:rgba(255,255,255,.08);--border-strong:rgba(255,255,255,.16);--text:#f5f5f4;--muted:#a1a1a8;--dim:#6b6b72;--gold:#d4a84b;--gold-hover:#e0b85c;--gold-dim:rgba(212,168,75,.18);--info:#7fb5f0;--thought:#b39bfb;--act:#d6a077;--confirm:#9fc99d;--font-sans:"Inter",system-ui,sans-serif;--font-mono:"JetBrains Mono",ui-monospace,monospace;--font-display:"Oswald","Inter",sans-serif;--ease:cubic-bezier(.22,1,.36,1);}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);font-feature-settings:"ss01","cv11";line-height:1.6;-webkit-font-smoothing:antialiased;}
+@keyframes laneOn{0%{opacity:0}100%{opacity:1}}
+@keyframes packet{0%{offset-distance:0%;opacity:0}8%{opacity:1}92%{opacity:1}100%{offset-distance:100%;opacity:0}}
+@keyframes donesweep{0%,55%{opacity:0}60%{opacity:1}100%{opacity:1}}
+@keyframes mergeGlow{0%,60%{opacity:.2}72%{opacity:.9}100%{opacity:.2}}
+@keyframes capA{0%{opacity:1}33%{opacity:1}34%{opacity:0}100%{opacity:0}}
+@keyframes capB{0%,34%{opacity:0}35%{opacity:1}66%{opacity:1}67%{opacity:0}100%{opacity:0}}
+@keyframes capC{0%,67%{opacity:0}68%{opacity:1}100%{opacity:1}}
+@keyframes capDot{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.25);opacity:1}}
+[data-pausable]:hover,[data-pausable]:hover *{animation-play-state:paused !important;}
+
+/* mobile hardening */
+html,body{max-width:100%;overflow-x:hidden;}
+img,svg,pre,code,table{max-width:100%;}
+svg{height:auto;}
+pre{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+@media (max-width:760px){
+  [style*="max-width:1080px"],[style*="max-width: 1080px"],
+  [style*="max-width:960px"],[style*="max-width: 960px"],
+  [style*="max-width:900px"],[style*="max-width: 900px"],
+  [style*="max-width:820px"],[style*="max-width: 820px"]{padding-left:18px!important;padding-right:18px!important;}
+  [style*="grid-template-columns:1fr auto"],[style*="grid-template-columns: 1fr auto"],
+  [style*="grid-template-columns:1fr 1fr"],[style*="grid-template-columns: 1fr 1fr"],
+  [style*="minmax(320px"],[style*="minmax(300px"]{grid-template-columns:1fr!important;}
+}
+@media (max-width:480px){
+  [style*="font-size:28px"],[style*="font-size: 28px"]{font-size:22px!important;}
+}
+</style>
+<script>
+(function(){document.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a[href]'):null;if(!a)return;var href=a.getAttribute('href')||'';if(!/\.dc\.html(\?|#|$)/.test(href))return;if(/^https?:\/\//i.test(href)||href.indexOf('//')===0)return;var q=window.location.search;if(!q)return;e.preventDefault();var h=href.indexOf('#'),hash=h>=0?href.slice(h):'',path=(h>=0?href.slice(0,h):href).split('?')[0];window.location.href=path+q+hash;},true);})();
+</script>
+</helmet>
+<div data-screen-label="meta-planning skill page" style="background:var(--bg);color:var(--text);min-height:100vh;font-family:var(--font-sans);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(10,10,11,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);">
+    <div style="max-width:820px;margin:0 auto;padding:0 28px;height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
+      <a href="Portfolio Hub.dc.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-family:var(--font-display);font-weight:600;font-size:19px;letter-spacing:.02em;"><span style="width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold);"></span>META<span style="color:var(--gold);">·</span>SUITE</a>
+      <a href="Overview.dc.html#skills" style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);padding:9px 12px;border-radius:8px;text-decoration:none;transition:color .2s,background .2s;" style-hover="color:var(--text);background:var(--raised);">← all nine</a>
+    </div>
+  </header>
+
+  <section style="max-width:820px;margin:0 auto;padding:56px 28px 8px;">
+    <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:var(--dim);margin-bottom:24px;"><a href="Overview.dc.html" style="color:var(--dim);text-decoration:none;">overview</a> / <a href="Overview.dc.html#skills" style="color:var(--dim);text-decoration:none;">skills</a> / <span style="color:var(--muted);">meta-planning</span></div>
+    <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Skill 02 · make axis</div>
+    <h1 style="font-family:var(--font-mono);font-weight:500;font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.01em;color:var(--gold);margin:0;">meta-planning</h1>
+    <p style="color:var(--text);font-size:20px;line-height:1.5;margin:22px 0 0;max-width:56ch;">A <em style="font-style:italic;color:var(--gold);">typed</em> plan scaffold — the structure a fleet of agents executes, written before the plan itself is.</p>
+  </section>
+
+  <section style="max-width:820px;margin:0 auto;padding:32px 28px;">
+    <figure data-pausable="true" style="margin:0;border:1px solid var(--border);border-radius:16px;background:var(--surface);overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.4),0 12px 40px rgba(0,0,0,.35);">
+      <div style="width:100%;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:8px;">
+      <svg viewBox="0 0 620 364" width="100%" style="max-width:620px;display:block;overflow:visible;" font-family="var(--font-sans)" aria-label="One goal fans out into parallel typed task lanes; each runs, completes, and merges back into a single shipped result.">
+        <!-- source -->
+        <rect x="30" y="128" width="96" height="44" rx="10" fill="var(--raised)" stroke="var(--gold)" stroke-width="1.5"></rect>
+        <text x="78" y="147" text-anchor="middle" font-family="var(--font-mono)" font-size="11" fill="var(--gold)">GOAL</text>
+        <text x="78" y="163" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--dim)">one line</text>
+        <!-- lanes -->
+        <g stroke-linecap="round" fill="none">
+          <path id="l1" d="M126 150 C 190 150 200 60 270 60" stroke="var(--border-strong)" stroke-width="1.5"></path>
+          <path id="l2" d="M126 150 C 190 150 200 105 270 105" stroke="var(--border-strong)" stroke-width="1.5"></path>
+          <path id="l3" d="M126 150 C 190 150 200 150 270 150" stroke="var(--border-strong)" stroke-width="1.5"></path>
+          <path id="l4" d="M126 150 C 190 150 200 195 270 195" stroke="var(--border-strong)" stroke-width="1.5"></path>
+          <path id="l5" d="M126 150 C 190 150 200 240 270 240" stroke="var(--border-strong)" stroke-width="1.5"></path>
+        </g>
+        <!-- packets -->
+        <circle r="4.5" fill="var(--gold)" style="filter:drop-shadow(0 0 5px var(--gold));offset-path:path('M126 150 C 190 150 200 60 270 60');animation:packet 4s var(--ease) infinite;animation-delay:0s;"></circle>
+        <circle r="4.5" fill="var(--gold)" style="filter:drop-shadow(0 0 5px var(--gold));offset-path:path('M126 150 C 190 150 200 105 270 105');animation:packet 4s var(--ease) infinite;animation-delay:.15s;"></circle>
+        <circle r="4.5" fill="var(--gold)" style="filter:drop-shadow(0 0 5px var(--gold));offset-path:path('M126 150 C 190 150 200 150 270 150');animation:packet 4s var(--ease) infinite;animation-delay:.3s;"></circle>
+        <circle r="4.5" fill="var(--gold)" style="filter:drop-shadow(0 0 5px var(--gold));offset-path:path('M126 150 C 190 150 200 195 270 195');animation:packet 4s var(--ease) infinite;animation-delay:.45s;"></circle>
+        <circle r="4.5" fill="var(--gold)" style="filter:drop-shadow(0 0 5px var(--gold));offset-path:path('M126 150 C 190 150 200 240 270 240');animation:packet 4s var(--ease) infinite;animation-delay:.6s;"></circle>
+        <!-- task cards -->
+        <g font-family="var(--font-mono)" font-size="10">
+          <rect x="270" y="44" width="150" height="32" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="1"></rect><text x="284" y="64" fill="var(--info)">task · research</text>
+          <rect x="270" y="89" width="150" height="32" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="1"></rect><text x="284" y="109" fill="var(--thought)">task · draft</text>
+          <rect x="270" y="134" width="150" height="32" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="1"></rect><text x="284" y="154" fill="var(--act)">task · build</text>
+          <rect x="270" y="179" width="150" height="32" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="1"></rect><text x="284" y="199" fill="var(--confirm)">task · test</text>
+          <rect x="270" y="224" width="150" height="32" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="1"></rect><text x="284" y="244" fill="var(--gold)">task · docs</text>
+          <!-- done ticks -->
+          <g style="opacity:0;animation:donesweep 4s var(--ease) infinite;">
+            <path d="M400 55 l4 4 l7 -8" stroke="var(--confirm)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M400 100 l4 4 l7 -8" stroke="var(--confirm)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M400 145 l4 4 l7 -8" stroke="var(--confirm)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M400 190 l4 4 l7 -8" stroke="var(--confirm)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M400 235 l4 4 l7 -8" stroke="var(--confirm)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+          </g>
+        </g>
+        <!-- merge -->
+        <g stroke-linecap="round" fill="none" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="3 5">
+          <path d="M420 60 C 490 60 500 150 556 150"></path>
+          <path d="M420 105 C 490 105 500 150 556 150"></path>
+          <path d="M420 150 C 490 150 500 150 556 150"></path>
+          <path d="M420 195 C 490 195 500 150 556 150"></path>
+          <path d="M420 240 C 490 240 500 150 556 150"></path>
+        </g>
+        <circle cx="574" cy="150" r="26" fill="none" stroke="var(--gold-dim)" stroke-width="1.5" style="animation:mergeGlow 4s var(--ease) infinite;"></circle>
+        <circle cx="574" cy="150" r="18" fill="var(--raised)" stroke="var(--gold)" stroke-width="1.5"></circle>
+        <text x="574" y="154" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--gold)">SHIP</text>
+        <!-- stepped narration -->
+        <line x1="30" y1="292" x2="590" y2="292" stroke="var(--border)" stroke-width="1"></line>
+        <circle cx="38" cy="326" r="5" fill="var(--gold)" style="transform-origin:38px 326px;animation:capDot 1.3s ease-in-out infinite;"></circle>
+        <text x="54" y="314" font-family="var(--font-mono)" font-size="9" letter-spacing="1.5" fill="var(--dim)">WHAT'S HAPPENING</text>
+        <text x="54" y="333" font-size="14" font-weight="600" fill="var(--text)" style="animation:capA 4s step-end infinite;">1 · Split one goal into typed tasks — each with inputs and an output.</text>
+        <text x="54" y="333" font-size="14" font-weight="600" fill="var(--text)" style="opacity:0;animation:capB 4s step-end infinite;">2 · Run every task that isn't waiting on another one — in parallel.</text>
+        <text x="54" y="333" font-size="14" font-weight="600" fill="var(--text)" style="opacity:0;animation:capC 4s step-end infinite;">3 · Merge the finished pieces back into one shipped result.</text>
+        <text x="54" y="352" font-size="11.5" fill="var(--muted)">“Typed” = each task states what it needs and what it makes, so it can run unattended.</text>
+      </svg>
+      </div>
+      <figcaption style="border-top:1px solid var(--border);padding:12px 18px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--dim);">FIG — one goal, typed into parallel task lanes, each executed and merged back</figcaption>
+    </figure>
+  </section>
+
+  <section style="max-width:820px;margin:0 auto;padding:32px 28px;">
+    <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">// what it does</div>
+    <p style="color:var(--muted);font-size:17px;line-height:1.7;margin:0 0 16px;max-width:66ch;">A normal plan is a to-do list — prose an agent has to interpret. A <strong style="color:var(--text);font-weight:600;">meta-plan</strong> is a <strong style="color:var(--text);font-weight:600;">typed structure</strong>: tasks with declared inputs, outputs, and dependencies, so they can be handed to parallel agents without a human re-explaining each one.</p>
+    <p style="color:var(--muted);font-size:17px;line-height:1.7;margin:0;max-width:66ch;">You describe the goal in a line. It emits the shape the work takes — what runs in parallel, what must wait, and how the pieces merge back into one shipped result.</p>
+  </section>
+
+  <section style="max-width:820px;margin:0 auto;padding:32px 28px;">
+    <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;">// the anatomy</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+      <div style="border:1px solid var(--border);border-radius:14px;padding:22px;background:var(--surface);"><div style="font-family:var(--font-mono);font-size:15px;color:var(--gold);margin-bottom:10px;">tasks</div><p style="color:var(--muted);font-size:14.5px;margin:0;line-height:1.6;">Each a typed unit — declared inputs, a single output, an owner.</p></div>
+      <div style="border:1px solid var(--border);border-radius:14px;padding:22px;background:var(--surface);"><div style="font-family:var(--font-mono);font-size:15px;color:var(--gold);margin-bottom:10px;">dependencies</div><p style="color:var(--muted);font-size:14.5px;margin:0;line-height:1.6;">What must finish first. Everything else runs in parallel by default.</p></div>
+      <div style="border:1px solid var(--border);border-radius:14px;padding:22px;background:var(--surface);"><div style="font-family:var(--font-mono);font-size:15px;color:var(--gold);margin-bottom:10px;">merge</div><p style="color:var(--muted);font-size:14.5px;margin:0;line-height:1.6;">The rule that folds the parallel outputs back into one deliverable.</p></div>
+    </div>
+  </section>
+
+  <section style="max-width:820px;margin:0 auto;padding:32px 28px;">
+    <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">// invoke it</div>
+    <div style="background:var(--raised);border:1px solid var(--border-strong);border-radius:12px;padding:16px 18px;font-family:var(--font-mono);font-size:14px;color:var(--text);overflow-x:auto;margin-bottom:14px;"><span style="color:var(--gold);">/meta-planning</span> <span style="color:var(--muted);">&lt;a goal big enough to split&gt;</span></div>
+    <div style="border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:0 12px 12px 0;padding:16px 20px;background:var(--gold-dim);"><p style="color:var(--text);font-size:15px;margin:0;line-height:1.6;">Returns a typed plan: parallelizable tasks, their dependency edges, and a merge rule — ready to hand to a fleet of agents or work solo, top to bottom.</p></div>
+  </section>
+
+  <section style="max-width:820px;margin:0 auto;padding:32px 28px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
+      <div style="border:1px solid var(--border);border-radius:12px;padding:16px 18px;background:var(--surface);"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold);margin-bottom:10px;"></span><div style="font-weight:600;font-size:14px;">Parallel by default</div><p style="color:var(--dim);font-size:13px;margin:6px 0 0;">Serial only where forced.</p></div>
+      <div style="border:1px solid var(--border);border-radius:12px;padding:16px 18px;background:var(--surface);"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--info);margin-bottom:10px;"></span><div style="font-weight:600;font-size:14px;">Typed, not prose</div><p style="color:var(--dim);font-size:13px;margin:6px 0 0;">Machine-executable shape.</p></div>
+      <div style="border:1px solid var(--border);border-radius:12px;padding:16px 18px;background:var(--surface);"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--confirm);margin-bottom:10px;"></span><div style="font-weight:600;font-size:14px;">Merges cleanly</div><p style="color:var(--dim);font-size:13px;margin:6px 0 0;">One deliverable out.</p></div>
+      <div style="border:1px solid var(--border);border-radius:12px;padding:16px 18px;background:var(--surface);"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--thought);margin-bottom:10px;"></span><div style="font-weight:600;font-size:14px;">It compounds</div><p style="color:var(--dim);font-size:13px;margin:6px 0 0;">Reuse the plan shape.</p></div>
+    </div>
+  </section>
+
+    <!-- GROUNDING -->
+  <section style="max-width:820px;margin:0 auto;padding:32px 28px;">
+    <div style="border:1px solid var(--border);border-radius:14px;padding:24px;background:var(--surface);">
+      <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Grounding</div>
+      <p style="color:var(--muted);font-size:14px;margin:0 0 20px;line-height:1.55;max-width:62ch;">The ideas here aren't invented — the skill generalizes established practice into one reusable, task-agnostic move. Below: the prior art it builds on, and the in-repo contract it actually runs on.</p>
+      <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:0 0 2px;">Prior art</div>
+      <div style="padding:13px 0;border-bottom:1px solid var(--border);font-size:15px;color:var(--muted);line-height:1.55;"><span style="color:var(--text);font-weight:600;">Work-unit graphs &amp; critical path</span> — decompose a task into typed units under a partial order; parallelize only the lanes that are genuinely independent. <span style="font-family:var(--font-mono);font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;">DAG · CPM</span></div>
+      <div style="padding:13px 0;border-bottom:1px solid var(--border);font-size:15px;color:var(--muted);line-height:1.55;"><span style="color:var(--text);font-weight:600;">Kaizen</span> — Masaaki Imai (1986) — the small-batch continuous-improvement loop the plan's KAIZEN stage encodes.</div>
+      <div style="padding:13px 0;border-bottom:1px solid var(--border);font-size:15px;color:var(--muted);line-height:1.55;"><span style="color:var(--text);font-weight:600;">Stop-the-line (Andon)</span> — Toyota Production System — any work unit can halt the run the moment a gate fails.</div>
+      <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:24px 0 2px;">In this suite</div>
+      <div style="padding:13px 0;font-size:15px;color:var(--muted);line-height:1.55;">The canonical generator <span style="font-family:var(--font-mono);font-size:13px;color:var(--gold);">meta-meta-planning-prompt.md</span> — roles, type system, and plan schema — verified by the OPUS → FABLE → MERCURIO tri-audit.</div>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid var(--border);margin-top:20px;">
+    <div style="max-width:820px;margin:0 auto;padding:28px 28px 56px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;">
+      <a href="meta-prompting.dc.html" style="font-family:var(--font-mono);font-size:13px;color:var(--muted);text-decoration:none;" style-hover="color:var(--gold);">← meta-prompting</a>
+      <a href="meta-design.dc.html" style="font-family:var(--font-mono);font-size:13px;color:var(--gold);text-decoration:none;">next · meta-design →</a>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

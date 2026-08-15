@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0b;--surface:#121214;--raised:#1a1a1d;--border:rgba(255,255,255,.08);--border-strong:rgba(255,255,255,.16);--text:#f5f5f4;--muted:#a1a1a8;--dim:#6b6b72;--gold:#d4a84b;--gold-dim:rgba(212,168,75,.18);--info:#7fb5f0;--thought:#b39bfb;--act:#d6a077;--confirm:#9fc99d;--font-sans:"Inter",system-ui,sans-serif;--font-mono:"JetBrains Mono",ui-monospace,monospace;--font-display:"Oswald","Inter",sans-serif;--ease:cubic-bezier(.22,1,.36,1);}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);}
+@keyframes olRing{0%,100%{transform:scale(1)}50%{transform:scale(.988)}}
+@keyframes olNode{0%{opacity:0}2%{opacity:1}11%{opacity:1}17%{opacity:0}100%{opacity:0}}
+@keyframes olCap{0%{opacity:0}0.6%{opacity:1}10.6%{opacity:1}11.11%{opacity:0}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){svg *{animation:none!important}}
+[data-pausable]:hover,[data-pausable]:hover *{animation-play-state:paused !important;}
+
+/* mobile hardening */
+html,body{max-width:100%;overflow-x:hidden;}
+img,svg,pre,code,table{max-width:100%;}
+svg{height:auto;}
+pre{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+@media (max-width:760px){
+  [style*="max-width:1080px"],[style*="max-width: 1080px"],
+  [style*="max-width:960px"],[style*="max-width: 960px"],
+  [style*="max-width:900px"],[style*="max-width: 900px"],
+  [style*="max-width:820px"],[style*="max-width: 820px"]{padding-left:18px!important;padding-right:18px!important;}
+  [style*="grid-template-columns:1fr auto"],[style*="grid-template-columns: 1fr auto"],
+  [style*="grid-template-columns:1fr 1fr"],[style*="grid-template-columns: 1fr 1fr"],
+  [style*="minmax(320px"],[style*="minmax(300px"]{grid-template-columns:1fr!important;}
+}
+@media (max-width:480px){
+  [style*="font-size:28px"],[style*="font-size: 28px"]{font-size:22px!important;}
+}
+</style>
+</helmet>
+<div data-pausable="true" style="width:100%;height:100%;min-height:440px;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:8px;">
+<svg viewBox="0 0 980 440" width="100%" height="100%" style="max-width:1020px;display:block;overflow:visible;" font-family="var(--font-sans)" aria-label="The operating loop: nine meta-skills run in order across four arcs — frame, shape, make, keep — then the last step feeds the first. A panel beside the wheel names each skill as it lights and says what it does.">
+
+  <!-- breathing ring -->
+  <g style="transform-origin:280px 200px;animation:olRing 9s var(--ease) infinite;">
+    <circle cx="280" cy="200" r="130" fill="none" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="2 7" stroke-linecap="round"></circle>
+    <circle cx="280" cy="200" r="130" fill="none" stroke="var(--gold-dim)" stroke-width="1"></circle>
+  </g>
+
+  <!-- arc labels (four) -->
+  <text x="341" y="33" text-anchor="middle" font-family="var(--font-mono)" font-size="10.5" letter-spacing="2.5" font-weight="500" fill="var(--thought)">FRAME</text>
+  <text x="455" y="231" text-anchor="middle" font-family="var(--font-mono)" font-size="10.5" letter-spacing="2.5" font-weight="500" fill="var(--gold)">SHAPE</text>
+  <text x="219" y="371" text-anchor="middle" font-family="var(--font-mono)" font-size="10.5" letter-spacing="2.5" font-weight="500" fill="var(--act)">MAKE</text>
+  <text x="126" y="112" text-anchor="middle" font-family="var(--font-mono)" font-size="10.5" letter-spacing="2.5" font-weight="500" fill="var(--confirm)">KEEP</text>
+
+  <!-- node 1 · context (frame/thought) @0 -->
+  <g><circle cx="280" cy="70" r="12" fill="#181820" stroke="var(--border-strong)" stroke-width="1.5"></circle><text x="280" y="74.5" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="500" fill="var(--muted)">1</text>
+    <g style="opacity:0;animation:olNode 18s linear infinite;animation-delay:0s;"><circle cx="280" cy="70" r="19" fill="var(--thought)" opacity=".18"></circle><circle cx="280" cy="70" r="12" fill="var(--thought)" style="filter:drop-shadow(0 0 6px var(--thought));"></circle><text x="280" y="74.5" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="700" fill="#15110a">1</text></g></g>
+
+  <!-- node 2 · research (frame/thought) @2 -->
+  <g><circle cx="363.6" cy="100.4" r="12" fill="#181820" stroke="var(--border-strong)" stroke-width="1.5"></circle><text x="363.6" y="104.9" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="500" fill="var(--muted)">2</text>
+    <g style="opacity:0;animation:olNode 18s linear infinite;animation-delay:2s;"><circle cx="363.6" cy="100.4" r="19" fill="var(--thought)" opacity=".18"></circle><circle cx="363.6" cy="100.4" r="12" fill="var(--thought)" style="filter:drop-shadow(0 0 6px var(--thought));"></circle><text x="363.6" y="104.9" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="700" fill="#15110a">2</text></g></g>
+
+  <!-- node 3 · prompting (shape/gold) @4 -->
+  <g><circle cx="408" cy="177.4" r="12" fill="#181820" stroke="var(--border-strong)" stroke-width="1.5"></circle><text x="408" y="181.9" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="500" fill="var(--muted)">3</text>
+    <g style="opacity:0;animation:olNode 18s linear infinite;animation-delay:4s;"><circle cx="408" cy="177.4" r="19" fill="var(--gold)" opacity=".18"></circle><circle cx="408" cy="177.4" r="12" fill="var(--gold)" style="filter:drop-shadow(0 0 6px var(--gold));"></circle><text x="408" y="181.9" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="700" fill="#15110a">3</text></g></g>
+
+  <!-- node 4 · planning (shape/gold) @6 -->
+  <g><circle cx="392.6" cy="265" r="12" fill="#181820" stroke="var(--border-strong)" stroke-width="1.5"></circle><text x="392.6" y="269.5" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="500" fill="var(--muted)">4</text>
+    <g style="opacity:0;animation:olNode 18s linear infinite;animation-delay:6s;"><circle cx="392.6" cy="265" r="19" fill="var(--gold)" opacity=".18"></circle><circle cx="392.6" cy="265" r="12" fill="var(--gold)" style="filter:drop-shadow(0 0 6px var(--gold));"></circle><text x="392.6" y="269.5" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="700" fill="#15110a">4</text></g></g>
+
+  <!-- node 5 · design (make/act) @8 -->
+  <g><circle cx="324.5" cy="322.2" r="12" fill="#181820" stroke="var(--border-strong)" stroke-width="1.5"></circle><text x="324.5" y="326.7" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="500" fill="var(--muted)">5</text>
+    <g style="opacity:0;animation:olNode 18s linear infinite;animation-delay:8s;"><circle cx="324.5" cy="322.2" r="19" fill="var(--act)" opacity=".18"></circle><circle cx="324.5" cy="322.2" r="12" fill="var(--act)" style="filter:drop-shadow(0 0 6px var(--act));"></circle><text x="324.5" y="326.7" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="700" fill="#15110a">5</text></g></g>
+
+  <!-- node 6 · mvp (make/act) @10 -->
+  <g><circle cx="235.5" cy="322.2" r="12" fill="#181820" stroke="var(--border-strong)" stroke-width="1.5"></circle><text x="235.5" y="326.7" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="500" fill="var(--muted)">6</text>
+    <g style="opacity:0;animation:olNode 18s linear infinite;animation-delay:10s;"><circle cx="235.5" cy="322.2" r="19" fill="var(--act)" opacity=".18"></circle><circle cx="235.5" cy="322.2" r="12" fill="var(--act)" style="filter:drop-shadow(0 0 6px var(--act));"></circle><text x="235.5" y="326.7" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="700" fill="#15110a">6</text></g></g>
+
+  <!-- node 7 · craft (make/act) @12 -->
+  <g><circle cx="167.4" cy="265" r="12" fill="#181820" stroke="var(--border-strong)" stroke-width="1.5"></circle><text x="167.4" y="269.5" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="500" fill="var(--muted)">7</text>
+    <g style="opacity:0;animation:olNode 18s linear infinite;animation-delay:12s;"><circle cx="167.4" cy="265" r="19" fill="var(--act)" opacity=".18"></circle><circle cx="167.4" cy="265" r="12" fill="var(--act)" style="filter:drop-shadow(0 0 6px var(--act));"></circle><text x="167.4" y="269.5" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="700" fill="#15110a">7</text></g></g>
+
+  <!-- node 8 · review (keep/confirm) @14 -->
+  <g><circle cx="152" cy="177.4" r="12" fill="#181820" stroke="var(--border-strong)" stroke-width="1.5"></circle><text x="152" y="181.9" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="500" fill="var(--muted)">8</text>
+    <g style="opacity:0;animation:olNode 18s linear infinite;animation-delay:14s;"><circle cx="152" cy="177.4" r="19" fill="var(--confirm)" opacity=".18"></circle><circle cx="152" cy="177.4" r="12" fill="var(--confirm)" style="filter:drop-shadow(0 0 6px var(--confirm));"></circle><text x="152" y="181.9" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="700" fill="#15110a">8</text></g></g>
+
+  <!-- node 9 · compound (keep/confirm) @16 -->
+  <g><circle cx="196.4" cy="100.4" r="12" fill="#181820" stroke="var(--border-strong)" stroke-width="1.5"></circle><text x="196.4" y="104.9" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="500" fill="var(--muted)">9</text>
+    <g style="opacity:0;animation:olNode 18s linear infinite;animation-delay:16s;"><circle cx="196.4" cy="100.4" r="19" fill="var(--confirm)" opacity=".18"></circle><circle cx="196.4" cy="100.4" r="12" fill="var(--confirm)" style="filter:drop-shadow(0 0 6px var(--confirm));"></circle><text x="196.4" y="104.9" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="700" fill="#15110a">9</text></g></g>
+
+  <!-- writeback edge: 9 -> 1 (compound feeds context) -->
+  <path d="M205 89 Q245 60 271 63" fill="none" stroke="var(--confirm)" stroke-width="1.4" stroke-dasharray="3 4" opacity=".55" marker-end="url(#olArrow)"></path>
+  <defs><marker id="olArrow" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="var(--confirm)" opacity=".7"></path></marker></defs>
+
+  <!-- side panel: the current station, in large text -->
+  <line x1="512" y1="72" x2="512" y2="368" stroke="var(--border)" stroke-width="1"></line>
+  <text x="560" y="76" font-family="var(--font-mono)" font-size="11" letter-spacing="2.5" fill="var(--gold)">THE NINE, IN ORDER</text>
+
+  <g style="opacity:1;animation:olCap 18s linear infinite;animation-delay:0s;">
+    <text x="560" y="128" font-family="var(--font-mono)" font-size="13" letter-spacing="1.5" fill="var(--thought)">01 / 09 · FRAME</text>
+    <text x="560" y="188" font-family="var(--font-display)" font-weight="600" font-size="44" fill="var(--text)">meta-context</text>
+    <text x="560" y="226" font-size="16.5" fill="var(--muted)">warm-start from what earlier passes learned</text>
+  </g>
+  <g style="opacity:0;animation:olCap 18s linear infinite;animation-delay:2s;">
+    <text x="560" y="128" font-family="var(--font-mono)" font-size="13" letter-spacing="1.5" fill="var(--thought)">02 / 09 · FRAME</text>
+    <text x="560" y="188" font-family="var(--font-display)" font-weight="600" font-size="44" fill="var(--text)">meta-research</text>
+    <text x="560" y="226" font-size="16.5" fill="var(--muted)">ground the brief in real, checkable sources</text>
+  </g>
+  <g style="opacity:0;animation:olCap 18s linear infinite;animation-delay:4s;">
+    <text x="560" y="128" font-family="var(--font-mono)" font-size="13" letter-spacing="1.5" fill="var(--gold)">03 / 09 · SHAPE</text>
+    <text x="560" y="188" font-family="var(--font-display)" font-weight="600" font-size="44" fill="var(--text)">meta-prompting</text>
+    <text x="560" y="226" font-size="16.5" fill="var(--muted)">turn the task into a reusable scaffold</text>
+  </g>
+  <g style="opacity:0;animation:olCap 18s linear infinite;animation-delay:6s;">
+    <text x="560" y="128" font-family="var(--font-mono)" font-size="13" letter-spacing="1.5" fill="var(--gold)">04 / 09 · SHAPE</text>
+    <text x="560" y="188" font-family="var(--font-display)" font-weight="600" font-size="44" fill="var(--text)">meta-planning</text>
+    <text x="560" y="226" font-size="16.5" fill="var(--muted)">break it into typed steps with clear gates</text>
+  </g>
+  <g style="opacity:0;animation:olCap 18s linear infinite;animation-delay:8s;">
+    <text x="560" y="128" font-family="var(--font-mono)" font-size="13" letter-spacing="1.5" fill="var(--act)">05 / 09 · MAKE</text>
+    <text x="560" y="188" font-family="var(--font-display)" font-weight="600" font-size="44" fill="var(--text)">meta-design</text>
+    <text x="560" y="226" font-size="16.5" fill="var(--muted)">give the thing its schema and shape</text>
+  </g>
+  <g style="opacity:0;animation:olCap 18s linear infinite;animation-delay:10s;">
+    <text x="560" y="128" font-family="var(--font-mono)" font-size="13" letter-spacing="1.5" fill="var(--act)">06 / 09 · MAKE</text>
+    <text x="560" y="188" font-family="var(--font-display)" font-weight="600" font-size="44" fill="var(--text)">meta-mvp</text>
+    <text x="560" y="226" font-size="16.5" fill="var(--muted)">build the first working version</text>
+  </g>
+  <g style="opacity:0;animation:olCap 18s linear infinite;animation-delay:12s;">
+    <text x="560" y="128" font-family="var(--font-mono)" font-size="13" letter-spacing="1.5" fill="var(--act)">07 / 09 · MAKE</text>
+    <text x="560" y="188" font-family="var(--font-display)" font-weight="600" font-size="44" fill="var(--text)">meta-craft</text>
+    <text x="560" y="226" font-size="16.5" fill="var(--muted)">finish it to a definition of done</text>
+  </g>
+  <g style="opacity:0;animation:olCap 18s linear infinite;animation-delay:14s;">
+    <text x="560" y="128" font-family="var(--font-mono)" font-size="13" letter-spacing="1.5" fill="var(--confirm)">08 / 09 · KEEP</text>
+    <text x="560" y="188" font-family="var(--font-display)" font-weight="600" font-size="44" fill="var(--text)">meta-review</text>
+    <text x="560" y="226" font-size="16.5" fill="var(--muted)">stress-test it through hard lenses</text>
+  </g>
+  <g style="opacity:0;animation:olCap 18s linear infinite;animation-delay:16s;">
+    <text x="560" y="128" font-family="var(--font-mono)" font-size="13" letter-spacing="1.5" fill="var(--confirm)">09 / 09 · KEEP</text>
+    <text x="560" y="188" font-family="var(--font-display)" font-weight="600" font-size="44" fill="var(--text)">meta-compound</text>
+    <text x="560" y="226" font-size="16.5" fill="var(--muted)">capture the lesson — it feeds step 1</text>
+  </g>
+  <text x="560" y="352" font-size="13" fill="var(--dim)">each skill hands its output to the next — 9 writes back into 1</text>
+
+  <!-- center emblem -->
+  <text x="280" y="190" text-anchor="middle" font-family="var(--font-mono)" font-size="10" letter-spacing="3" fill="var(--gold)">THE OPERATING LOOP</text>
+  <text x="280" y="216" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="20" fill="var(--text)">frame · shape · make · keep</text>
+  <text x="280" y="238" text-anchor="middle" font-size="12" fill="var(--muted)">step 9 feeds step 1  <tspan fill="var(--confirm)" font-size="14">&#8634;</tspan></text>
+</svg>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:980,&quot;height&quot;:440}}"></script>
+</body>
+</html>

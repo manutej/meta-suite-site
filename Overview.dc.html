@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0b;--surface:#121214;--raised:#1a1a1d;--border:rgba(255,255,255,.08);--border-strong:rgba(255,255,255,.16);--text:#f5f5f4;--muted:#a1a1a8;--dim:#6b6b72;--gold:#d4a84b;--gold-hover:#e0b85c;--gold-dim:rgba(212,168,75,.18);--info:#7fb5f0;--thought:#b39bfb;--act:#d6a077;--confirm:#9fc99d;--font-sans:"Inter",system-ui,sans-serif;--font-mono:"JetBrains Mono",ui-monospace,monospace;--font-display:"Oswald","Inter",sans-serif;--ease:cubic-bezier(.22,1,.36,1);}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);font-feature-settings:"ss01","cv11";line-height:1.6;-webkit-font-smoothing:antialiased;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+/* mobile hardening */
+html,body{max-width:100%;overflow-x:hidden;}
+img,svg,pre,code,table{max-width:100%;}
+svg{height:auto;}
+pre{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+@media (max-width:760px){
+  [style*="max-width:1080px"],[style*="max-width: 1080px"],
+  [style*="max-width:960px"],[style*="max-width: 960px"],
+  [style*="max-width:900px"],[style*="max-width: 900px"],
+  [style*="max-width:820px"],[style*="max-width: 820px"]{padding-left:18px!important;padding-right:18px!important;}
+  [style*="grid-template-columns:1fr auto"],[style*="grid-template-columns: 1fr auto"],
+  [style*="grid-template-columns:1fr 1fr"],[style*="grid-template-columns: 1fr 1fr"],
+  [style*="minmax(320px"],[style*="minmax(300px"]{grid-template-columns:1fr!important;}
+}
+@media (max-width:480px){
+  [style*="font-size:28px"],[style*="font-size: 28px"]{font-size:22px!important;}
+}
+</style>
+<script>
+(function(){document.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a[href]'):null;if(!a)return;var href=a.getAttribute('href')||'';if(!/\.dc\.html(\?|#|$)/.test(href))return;if(/^https?:\/\//i.test(href)||href.indexOf('//')===0)return;var q=window.location.search;if(!q)return;e.preventDefault();var h=href.indexOf('#'),hash=h>=0?href.slice(h):'',path=(h>=0?href.slice(0,h):href).split('?')[0];window.location.href=path+q+hash;},true);})();
+</script>
+</helmet>
+<div data-screen-label="Overview page" style="background:var(--bg);color:var(--text);min-height:100vh;font-family:var(--font-sans);">
+
+  <!-- NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(10,10,11,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);">
+    <div style="max-width:1080px;margin:0 auto;padding:0 28px;height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
+      <a href="Portfolio Hub.dc.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:.02em;">
+        <span style="width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold);"></span>META<span style="color:var(--gold);">·</span>SUITE
+      </a>
+      <nav style="display:flex;gap:6px;align-items:center;">
+        <a href="#axes" style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);padding:9px 12px;border-radius:8px;text-decoration:none;transition:color .2s,background .2s;" style-hover="color:var(--text);background:var(--raised);">Axes</a>
+        <a href="#skills" style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);padding:9px 12px;border-radius:8px;text-decoration:none;transition:color .2s,background .2s;" style-hover="color:var(--text);background:var(--raised);">Skills</a>
+        <a href="Operating Loop.dc.html" style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);padding:9px 12px;border-radius:8px;text-decoration:none;transition:color .2s,background .2s;" style-hover="color:var(--text);background:var(--raised);">Loop</a>
+        <a href="#install" style="font-family:var(--font-mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:#15110a;background:var(--gold);padding:10px 16px;border-radius:8px;text-decoration:none;transition:background .2s;" style-hover="background:var(--gold-hover);">Install</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section style="max-width:1080px;margin:0 auto;padding:70px 28px 40px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:40px;align-items:center;">
+      <div>
+        <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;">Claude plugin · nine meta-skills</div>
+        <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(38px,5.4vw,64px);line-height:1.02;letter-spacing:-.01em;margin:0;max-width:15ch;">Scaffolds that solve a <span style="color:var(--gold);">whole category</span> of work.</h1>
+        <p style="color:var(--muted);font-size:18px;line-height:1.55;margin:24px 0 0;max-width:52ch;">Nine task-agnostic meta-skills that operate one level up. Instead of doing the work, each emits the reusable structure the work follows — the prompt, the plan, the schema, the constitution, the map.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;">
+          <a href="#install" style="display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 22px;border-radius:10px;font-weight:600;font-size:15px;background:var(--gold);color:#15110a;text-decoration:none;transition:background .2s,transform .18s;" style-hover="background:var(--gold-hover);transform:translateY(-2px);">Install Meta-Suite</a>
+          <a href="#skills" style="display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 20px;border-radius:10px;font-family:var(--font-mono);font-size:13px;color:var(--text);border:1px solid var(--border-strong);text-decoration:none;transition:border-color .2s,color .2s,transform .18s;" style-hover="border-color:var(--gold);color:var(--gold);transform:translateY(-2px);">Browse the nine →</a>
+        </div>
+        <div style="display:flex;gap:32px;flex-wrap:wrap;margin-top:44px;padding-top:26px;border-top:1px solid var(--border);">
+          <div><div style="font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--gold);">9</div><div style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--dim);margin-top:2px;">Meta-skills</div></div>
+          <div><div style="font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--text);">2</div><div style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--dim);margin-top:2px;">Axes · make / keep</div></div>
+          <div><div style="font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--text);">0</div><div style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--dim);margin-top:2px;">Dependencies</div></div>
+        </div>
+      </div>
+      <figure style="margin:0;border:1px solid var(--border);border-radius:16px;background:var(--surface);overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.4),0 12px 40px rgba(0,0,0,.35);">
+        <dc-import name="Revision Loop" hint-size="100%,380px" style="display:block;width:100%;height:380px;"></dc-import>
+        <figcaption style="border-top:1px solid var(--border);padding:12px 18px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--dim);">FIG.01 — the revision loop the suite runs on</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- TWO AXES -->
+  <section id="axes" style="max-width:1080px;margin:0 auto;padding:60px 28px;">
+    <div style="max-width:64ch;margin-bottom:36px;">
+      <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Two axes</div>
+      <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(28px,3.4vw,40px);line-height:1.08;margin:0;">One axis <span style="color:var(--gold);">builds</span> it. One <span style="color:var(--gold);">keeps</span> it good.</h2>
+      <p style="color:var(--muted);font-size:17px;margin:16px 0 0;">Every skill sits on one of two axes. The <strong style="color:var(--text);font-weight:600;">make</strong> skills take an idea to a shipped thing. The <strong style="color:var(--text);font-weight:600;">keep</strong> skills make sure it stays good — durable, honest, and improving on its own.</p>
+    </div>
+    <figure style="margin:0 0 36px;border:1px solid var(--border);border-radius:16px;background:var(--surface);overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.4),0 12px 40px rgba(0,0,0,.35);">
+      <dc-import name="Make Keep Axes" hint-size="100%,400px" style="display:block;width:100%;height:400px;"></dc-import>
+      <figcaption style="border-top:1px solid var(--border);padding:12px 18px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--dim);">FIG.02 — make is a line, keep is a loop</figcaption>
+    </figure>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
+      <div style="border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:0 14px 14px 0;padding:24px 26px;background:var(--surface);">
+        <div style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:500;">The make axis</div>
+        <h3 style="font-family:var(--font-display);font-weight:600;font-size:22px;margin:10px 0 8px;">Idea → shipped thing</h3>
+        <p style="color:var(--muted);font-size:15px;margin:0;">From a spark to a deliverable. These skills shape how a thing gets thought about, planned, designed, and assembled.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;">
+          <span style="font-family:var(--font-mono);font-size:12px;padding:6px 10px;border-radius:7px;border:1px solid rgba(212,168,75,.35);color:var(--text);">prompting</span>
+          <span style="font-family:var(--font-mono);font-size:12px;padding:6px 10px;border-radius:7px;border:1px solid rgba(212,168,75,.35);color:var(--text);">planning</span>
+          <span style="font-family:var(--font-mono);font-size:12px;padding:6px 10px;border-radius:7px;border:1px solid rgba(212,168,75,.35);color:var(--text);">design</span>
+          <span style="font-family:var(--font-mono);font-size:12px;padding:6px 10px;border-radius:7px;border:1px solid rgba(212,168,75,.35);color:var(--text);">mvp</span>
+        </div>
+      </div>
+      <div style="border:1px solid var(--border);border-left:4px solid var(--confirm);border-radius:0 14px 14px 0;padding:24px 26px;background:var(--surface);">
+        <div style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--confirm);font-weight:500;">The keep axis</div>
+        <h3 style="font-family:var(--font-display);font-weight:600;font-size:22px;margin:10px 0 8px;">Good, durable, self-improving</h3>
+        <p style="color:var(--muted);font-size:15px;margin:0;">After it exists, keep it honest. These skills compound quality, set the bar, stress-test the work, and carry context forward.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;">
+          <span style="font-family:var(--font-mono);font-size:12px;padding:6px 10px;border-radius:7px;border:1px solid rgba(159,201,157,.35);color:var(--text);">compound</span>
+          <span style="font-family:var(--font-mono);font-size:12px;padding:6px 10px;border-radius:7px;border:1px solid rgba(159,201,157,.35);color:var(--text);">craft</span>
+          <span style="font-family:var(--font-mono);font-size:12px;padding:6px 10px;border-radius:7px;border:1px solid rgba(159,201,157,.35);color:var(--text);">review</span>
+          <span style="font-family:var(--font-mono);font-size:12px;padding:6px 10px;border-radius:7px;border:1px solid rgba(159,201,157,.35);color:var(--text);">research</span>
+          <span style="font-family:var(--font-mono);font-size:12px;padding:6px 10px;border-radius:7px;border:1px solid rgba(159,201,157,.35);color:var(--text);">context</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" style="max-width:1080px;margin:0 auto;padding:60px 28px;">
+    <div style="max-width:64ch;margin-bottom:34px;">
+      <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">The nine</div>
+      <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(28px,3.4vw,40px);line-height:1.08;margin:0;">Invoke the structure, not the task.</h2>
+      <p style="color:var(--muted);font-size:17px;margin:16px 0 0;">Each is a skill you invoke by name. It returns the reusable scaffold a category of work follows — not a one-off answer. Open one to see the page and its explainer.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;">
+
+      <a href="meta-prompting.dc.html" style="text-decoration:none;color:inherit;border:1px solid var(--gold);border-radius:14px;padding:22px;background:var(--surface);box-shadow:0 0 0 1px var(--gold-dim);position:relative;display:block;transition:transform .22s var(--ease),background .22s;" style-hover="transform:translateY(-4px);background:var(--raised);">
+        <span style="position:absolute;top:16px;right:16px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#15110a;background:var(--gold);padding:3px 8px;border-radius:999px;">live</span>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--dim);">01 · make</div>
+        <div style="font-family:var(--font-mono);font-weight:500;font-size:16px;color:var(--gold);margin-top:8px;">meta-prompting</div>
+        <p style="color:var(--muted);font-size:14px;margin:10px 0 0;line-height:1.5;">A reusable meta-prompt: how to think about a task category, not a worked example.</p>
+      </a>
+
+      <a href="meta-planning.dc.html" style="text-decoration:none;color:inherit;border:1px solid var(--border);border-radius:14px;padding:22px;background:var(--surface);position:relative;display:block;transition:transform .22s var(--ease),border-color .22s;" style-hover="transform:translateY(-4px);border-color:var(--border-strong);">
+        <span style="position:absolute;top:16px;right:16px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);border:1px solid rgba(212,168,75,.4);padding:3px 8px;border-radius:999px;">live</span>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--dim);">02 · make</div>
+        <div style="font-family:var(--font-mono);font-weight:500;font-size:16px;color:var(--text);margin-top:8px;">meta-planning</div>
+        <p style="color:var(--muted);font-size:14px;margin:10px 0 0;line-height:1.5;">A meta-plan: the typed scaffold a fleet of agents executes, before the plan is written.</p>
+      </a>
+
+      <a href="meta-design.dc.html" style="text-decoration:none;color:inherit;border:1px solid var(--border);border-radius:14px;padding:22px;background:var(--surface);position:relative;display:block;transition:transform .22s var(--ease),border-color .22s;" style-hover="transform:translateY(-4px);border-color:var(--border-strong);">
+        <span style="position:absolute;top:16px;right:16px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);border:1px solid rgba(212,168,75,.4);padding:3px 8px;border-radius:999px;">live</span>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--dim);">03 · make</div>
+        <div style="font-family:var(--font-mono);font-weight:500;font-size:16px;color:var(--text);margin-top:8px;">meta-design</div>
+        <p style="color:var(--muted);font-size:14px;margin:10px 0 0;line-height:1.5;">A medium-specific design schema, executed into an audited artifact plus the system that makes it.</p>
+      </a>
+
+      <a href="meta-mvp.dc.html" style="text-decoration:none;color:inherit;border:1px solid var(--border);border-radius:14px;padding:22px;background:var(--surface);position:relative;display:block;transition:transform .22s var(--ease),border-color .22s;" style-hover="transform:translateY(-4px);border-color:var(--border-strong);">
+        <span style="position:absolute;top:16px;right:16px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);border:1px solid rgba(212,168,75,.4);padding:3px 8px;border-radius:999px;">live</span>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--dim);">04 · make</div>
+        <div style="font-family:var(--font-mono);font-weight:500;font-size:16px;color:var(--text);margin-top:8px;">meta-mvp</div>
+        <p style="color:var(--muted);font-size:14px;margin:10px 0 0;line-height:1.5;">A one-liner expanded into a full, research-grounded deliverable bundle.</p>
+      </a>
+
+      <a href="meta-compound.dc.html" style="text-decoration:none;color:inherit;border:1px solid var(--border);border-radius:14px;padding:22px;background:var(--surface);position:relative;display:block;transition:transform .22s var(--ease),border-color .22s;" style-hover="transform:translateY(-4px);border-color:var(--border-strong);">
+        <span style="position:absolute;top:16px;right:16px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);border:1px solid rgba(212,168,75,.4);padding:3px 8px;border-radius:999px;">live</span>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--dim);">05 · keep</div>
+        <div style="font-family:var(--font-mono);font-weight:500;font-size:16px;color:var(--text);margin-top:8px;">meta-compound</div>
+        <p style="color:var(--muted);font-size:14px;margin:10px 0 0;line-height:1.5;">The compounding map: how each unit of work makes the next one easier, and where to invest first.</p>
+      </a>
+
+      <a href="meta-craft.dc.html" style="text-decoration:none;color:inherit;border:1px solid var(--border);border-radius:14px;padding:22px;background:var(--surface);position:relative;display:block;transition:transform .22s var(--ease),border-color .22s;" style-hover="transform:translateY(-4px);border-color:var(--border-strong);">
+        <span style="position:absolute;top:16px;right:16px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);border:1px solid rgba(212,168,75,.4);padding:3px 8px;border-radius:999px;">live</span>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--dim);">06 · keep</div>
+        <div style="font-family:var(--font-mono);font-weight:500;font-size:16px;color:var(--text);margin-top:8px;">meta-craft</div>
+        <p style="color:var(--muted);font-size:14px;margin:10px 0 0;line-height:1.5;">A tailored craft constitution plus an evidence-based Definition of Done.</p>
+      </a>
+
+      <a href="meta-review.dc.html" style="text-decoration:none;color:inherit;border:1px solid var(--border);border-radius:14px;padding:22px;background:var(--surface);position:relative;display:block;transition:transform .22s var(--ease),border-color .22s;" style-hover="transform:translateY(-4px);border-color:var(--border-strong);">
+        <span style="position:absolute;top:16px;right:16px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);border:1px solid rgba(212,168,75,.4);padding:3px 8px;border-radius:999px;">live</span>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--dim);">07 · keep</div>
+        <div style="font-family:var(--font-mono);font-weight:500;font-size:16px;color:var(--text);margin-top:8px;">meta-review</div>
+        <p style="color:var(--muted);font-size:14px;margin:10px 0 0;line-height:1.5;">Adversarial multi-lens review: prioritized findings, blind-spot probes, a reusable lesson.</p>
+      </a>
+
+      <a href="meta-research.dc.html" style="text-decoration:none;color:inherit;border:1px solid var(--border);border-radius:14px;padding:22px;background:var(--surface);position:relative;display:block;transition:transform .22s var(--ease),border-color .22s;" style-hover="transform:translateY(-4px);border-color:var(--border-strong);">
+        <span style="position:absolute;top:16px;right:16px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);border:1px solid rgba(212,168,75,.4);padding:3px 8px;border-radius:999px;">live</span>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--dim);">08 · keep</div>
+        <div style="font-family:var(--font-mono);font-weight:500;font-size:16px;color:var(--text);margin-top:8px;">meta-research</div>
+        <p style="color:var(--muted);font-size:14px;margin:10px 0 0;line-height:1.5;">A rigorous, cross-verified, source-cited brief with explicit confidence and reusable knowledge atoms.</p>
+      </a>
+
+      <a href="meta-context.dc.html" style="text-decoration:none;color:inherit;border:1px solid var(--border);border-radius:14px;padding:22px;background:var(--surface);position:relative;display:block;transition:transform .22s var(--ease),border-color .22s;" style-hover="transform:translateY(-4px);border-color:var(--border-strong);">
+        <span style="position:absolute;top:16px;right:16px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);border:1px solid rgba(212,168,75,.4);padding:3px 8px;border-radius:999px;">live</span>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--dim);">09 · keep</div>
+        <div style="font-family:var(--font-mono);font-weight:500;font-size:16px;color:var(--text);margin-top:8px;">meta-context</div>
+        <p style="color:var(--muted);font-size:14px;margin:10px 0 0;line-height:1.5;">A context strategy and droppable-in memory scaffold so work compounds across sessions.</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- LOOP -->
+  <section id="loop" style="max-width:1080px;margin:0 auto;padding:60px 28px;">
+    <div style="border:1px solid var(--border);border-radius:20px;padding:40px 34px;background:var(--surface);">
+      <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">How it fits together</div>
+      <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(26px,3vw,36px);line-height:1.1;margin:0 0 8px;max-width:20ch;">The two axes close a loop.</h2>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:20px;">
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;padding:11px 15px;border-radius:10px;border:1px solid rgba(212,168,75,.4);color:var(--gold);">build</span>
+        <span style="color:var(--dim);font-family:var(--font-mono);">→</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;padding:11px 15px;border-radius:10px;border:1px solid rgba(127,181,240,.4);color:var(--info);">review</span>
+        <span style="color:var(--dim);font-family:var(--font-mono);">→</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;padding:11px 15px;border-radius:10px;border:1px solid rgba(159,201,157,.4);color:var(--confirm);">compound</span>
+        <span style="color:var(--dim);font-family:var(--font-mono);">→</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;padding:11px 15px;border-radius:10px;border:1px solid rgba(179,155,251,.4);color:var(--thought);">context</span>
+        <span style="color:var(--dim);font-family:var(--font-mono);">→</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;padding:11px 15px;border-radius:10px;border:1px solid rgba(212,168,75,.4);color:var(--gold);">sharper next think</span>
+        <span style="color:var(--gold);font-family:var(--font-mono);font-size:18px;">↺</span>
+      </div>
+      <p style="color:var(--muted);font-size:16px;margin:24px 0 0;max-width:66ch;">The <strong style="color:var(--text);font-weight:600;">make</strong> skills get you to a shipped thing. The <strong style="color:var(--text);font-weight:600;">keep</strong> skills make that thing better and remember why. Review hands a lesson to the compounding map; the map feeds the context scaffold; so your next build starts from everything the last one learned instead of a blank page. See the full nine-step order on <a href="Operating Loop.dc.html" style="color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold-dim);">the operating loop &rarr;</a></p>
+    </div>
+  </section>
+
+  <!-- INSTALL -->
+  <section id="install" style="max-width:1080px;margin:0 auto;padding:60px 28px;">
+    <div style="max-width:64ch;margin-bottom:30px;">
+      <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Install</div>
+      <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(26px,3vw,36px);line-height:1.1;margin:0;">Two lines in Claude. Or clone it.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
+      <div style="border:1px solid var(--border);border-radius:14px;padding:24px;background:var(--raised);">
+        <div style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--dim);margin-bottom:4px;">Recommended · plugin marketplace</div>
+        <div style="color:var(--muted);font-size:14px;margin-bottom:16px;">Add the marketplace, then install the suite.</div>
+        <div style="background:var(--bg);border:1px solid var(--border-strong);border-radius:10px;padding:12px 16px;font-family:var(--font-mono);font-size:13.5px;color:var(--text);margin-bottom:10px;overflow-x:auto;"><span style="color:var(--gold);">/plugin</span> marketplace add manutej/meta-suite</div>
+        <div style="background:var(--bg);border:1px solid var(--border-strong);border-radius:10px;padding:12px 16px;font-family:var(--font-mono);font-size:13.5px;color:var(--text);overflow-x:auto;"><span style="color:var(--gold);">/plugin</span> install meta-suite@meta-suite</div>
+      </div>
+      <div style="border:1px solid var(--border);border-radius:14px;padding:24px;background:var(--raised);">
+        <div style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--dim);margin-bottom:4px;">Secondary · clone &amp; run local</div>
+        <div style="color:var(--muted);font-size:14px;margin-bottom:16px;">Pull the repo and point Claude at the directory.</div>
+        <div style="background:var(--bg);border:1px solid var(--border-strong);border-radius:10px;padding:12px 16px;font-family:var(--font-mono);font-size:13.5px;color:var(--text);margin-bottom:10px;overflow-x:auto;"><span style="color:var(--confirm);">git</span> clone https://github.com/manutej/meta-suite</div>
+        <div style="background:var(--bg);border:1px solid var(--border-strong);border-radius:10px;padding:12px 16px;font-family:var(--font-mono);font-size:13.5px;color:var(--text);overflow-x:auto;"><span style="color:var(--confirm);">claude</span> --plugin-dir ./meta-suite</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="border-top:1px solid var(--border);margin-top:30px;">
+    <div style="max-width:1080px;margin:0 auto;padding:34px 28px 56px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;">
+      <div style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--dim);">MIT © 2026 Manu · CETI.AI</div>
+      <a href="https://github.com/manutej/meta-suite" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:13px;color:var(--gold);text-decoration:none;">github.com/manutej/meta-suite ↗</a>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

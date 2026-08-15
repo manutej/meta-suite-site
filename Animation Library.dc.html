@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0b;--surface:#121214;--raised:#1a1a1d;--border:rgba(255,255,255,.08);--border-strong:rgba(255,255,255,.16);--text:#f5f5f4;--muted:#a1a1a8;--dim:#6b6b72;--gold:#d4a84b;--gold-hover:#e0b85c;--gold-dim:rgba(212,168,75,.18);--info:#7fb5f0;--thought:#b39bfb;--act:#d6a077;--confirm:#9fc99d;--font-sans:"Inter",system-ui,sans-serif;--font-mono:"JetBrains Mono",ui-monospace,monospace;--font-display:"Oswald","Inter",sans-serif;--ease:cubic-bezier(.22,1,.36,1);}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);font-feature-settings:"ss01","cv11";line-height:1.6;-webkit-font-smoothing:antialiased;}
+
+/* mobile hardening */
+html,body{max-width:100%;overflow-x:hidden;}
+img,svg,pre,code,table{max-width:100%;}
+svg{height:auto;}
+pre{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+@media (max-width:760px){
+  [style*="max-width:1080px"],[style*="max-width: 1080px"],
+  [style*="max-width:960px"],[style*="max-width: 960px"],
+  [style*="max-width:900px"],[style*="max-width: 900px"],
+  [style*="max-width:820px"],[style*="max-width: 820px"]{padding-left:18px!important;padding-right:18px!important;}
+  [style*="grid-template-columns:1fr auto"],[style*="grid-template-columns: 1fr auto"],
+  [style*="grid-template-columns:1fr 1fr"],[style*="grid-template-columns: 1fr 1fr"],
+  [style*="minmax(320px"],[style*="minmax(300px"]{grid-template-columns:1fr!important;}
+}
+@media (max-width:480px){
+  [style*="font-size:28px"],[style*="font-size: 28px"]{font-size:22px!important;}
+}
+</style>
+<script>
+(function(){document.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a[href]'):null;if(!a)return;var href=a.getAttribute('href')||'';if(!/\.dc\.html(\?|#|$)/.test(href))return;if(/^https?:\/\//i.test(href)||href.indexOf('//')===0)return;var q=window.location.search;if(!q)return;e.preventDefault();var h=href.indexOf('#'),hash=h>=0?href.slice(h):'',path=(h>=0?href.slice(0,h):href).split('?')[0];window.location.href=path+q+hash;},true);})();
+</script>
+</helmet>
+<div data-screen-label="Animation Library" style="background:var(--bg);color:var(--text);min-height:100vh;font-family:var(--font-sans);">
+
+  <!-- NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(10,10,11,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);">
+    <div style="max-width:960px;margin:0 auto;padding:0 28px;height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
+      <a href="Portfolio Hub.dc.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-family:var(--font-display);font-weight:600;font-size:19px;letter-spacing:.02em;">
+        <span style="width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold);"></span>META<span style="color:var(--gold);">·</span>SUITE
+      </a>
+      <a href="Portfolio Hub.dc.html" style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);padding:9px 12px;border-radius:8px;text-decoration:none;transition:color .2s,background .2s;" style-hover="color:var(--text);background:var(--raised);">← hub</a>
+    </div>
+  </header>
+
+  <!-- HEADER -->
+  <section style="max-width:960px;margin:0 auto;padding:56px 28px 20px;">
+    <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Explainer animations · silver-hero-engine</div>
+    <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(34px,5vw,52px);line-height:1.04;margin:0;max-width:16ch;">A library for the ideas that are hard to say in words.</h1>
+    <p style="color:var(--muted);font-size:18px;line-height:1.55;margin:22px 0 0;max-width:60ch;">Custom SVG + timeline motion, one concept each. Every animation is a standalone component — embed it in a README, a docs page, or a slide. Hover any animation to hold the current frame; all motion halts under <span style="font-family:var(--font-mono);font-size:15px;color:var(--text);">prefers-reduced-motion</span>.</p>
+  </section>
+
+  <!-- ITEM 01 · Revision Loop -->
+  <section style="max-width:960px;margin:0 auto;padding:24px 28px;">
+    <div style="display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--border);border-radius:18px;background:var(--surface);overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.4),0 12px 40px rgba(0,0,0,.3);">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px;padding:22px 26px 4px;">
+        <div>
+          <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;color:var(--dim);">A01</div>
+          <h2 style="font-family:var(--font-display);font-weight:600;font-size:26px;margin:6px 0 0;">The revision loop</h2>
+        </div>
+        <span style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);border:1px solid rgba(212,168,75,.4);padding:5px 10px;border-radius:999px;">auto-play · explained</span>
+      </div>
+      <p style="color:var(--muted);font-size:15px;margin:0;padding:6px 26px 16px;max-width:74ch;">Each stage lights in turn, and the row beside it says — in plain words — what that stage does. The footer defines <em style="color:var(--gold);font-style:normal;">make</em> and <em style="color:var(--confirm);font-style:normal;">keep</em> so the labels never have to be guessed.</p>
+      <dc-import name="Revision Loop Explained" hint-size="100%,540px" style="display:block;width:100%;height:540px;border-top:1px solid var(--border);"></dc-import>
+    </div>
+  </section>
+
+  <!-- ITEM 02 · Make/Keep Axes -->
+  <section style="max-width:960px;margin:0 auto;padding:24px 28px;">
+    <div style="display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--border);border-radius:18px;background:var(--surface);overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.4),0 12px 40px rgba(0,0,0,.3);">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px;padding:22px 26px 4px;">
+        <div>
+          <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;color:var(--dim);">A02</div>
+          <h2 style="font-family:var(--font-display);font-weight:600;font-size:26px;margin:6px 0 0;">Make vs keep</h2>
+        </div>
+        <span style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);border:1px solid rgba(212,168,75,.4);padding:5px 10px;border-radius:999px;">auto-play loop</span>
+      </div>
+      <p style="color:var(--muted);font-size:15px;margin:0;padding:6px 26px 16px;max-width:70ch;">The two axes, side by side. Make is a straight line that arrives at a shipped thing. Keep is a closed loop that never stops raising the bar. Same energy, different shape.</p>
+      <dc-import name="Make Keep Axes" hint-size="100%,420px" style="display:block;width:100%;height:420px;border-top:1px solid var(--border);"></dc-import>
+    </div>
+  </section>
+
+  <!-- ITEM 03 · Meta-Prompting Recursion -->
+  <section style="max-width:960px;margin:0 auto;padding:24px 28px;">
+    <div style="display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--border);border-radius:18px;background:var(--surface);overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.4),0 12px 40px rgba(0,0,0,.3);">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px;padding:22px 26px 4px;">
+        <div>
+          <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;color:var(--dim);">A03</div>
+          <h2 style="font-family:var(--font-display);font-weight:600;font-size:26px;margin:6px 0 0;">Meta-prompting recursion</h2>
+        </div>
+        <span style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);border:1px solid rgba(212,168,75,.4);padding:5px 10px;border-radius:999px;">timeline · 3 passes</span>
+      </div>
+      <p style="color:var(--muted);font-size:15px;margin:0;padding:6px 26px 16px;max-width:70ch;">A prompt scaffold runs through the model; the model refines the scaffold; the version ticks up and the slots fill in. The engine of the whole suite, in one loop.</p>
+      <dc-import name="Meta-Prompting Recursion" hint-size="100%,420px" style="display:block;width:100%;height:420px;border-top:1px solid var(--border);"></dc-import>
+    </div>
+  </section>
+
+  <!-- ITEM 04 · Operating Loop Cycle -->
+  <section style="max-width:960px;margin:0 auto;padding:24px 28px;">
+    <div style="display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--gold);border-radius:18px;background:var(--surface);overflow:hidden;box-shadow:0 0 0 1px var(--gold-dim),0 12px 40px rgba(0,0,0,.3);">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px;padding:22px 26px 4px;">
+        <div>
+          <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;color:var(--dim);">A04 · the mindset</div>
+          <h2 style="font-family:var(--font-display);font-weight:600;font-size:26px;margin:6px 0 0;">The operating loop</h2>
+        </div>
+        <span style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);border:1px solid rgba(212,168,75,.4);padding:5px 10px;border-radius:999px;">auto-play · 9 stations</span>
+      </div>
+      <p style="color:var(--muted);font-size:15px;margin:0;padding:6px 26px 16px;max-width:74ch;">All nine skills as one flywheel. The nine stations light in order across four arcs — <span style="color:var(--thought);">frame</span>, <span style="color:var(--gold);">shape</span>, <span style="color:var(--act);">make</span>, <span style="color:var(--confirm);">keep</span> — and the dashed edge shows step 9 feeding back into step 1. The whole suite, in one shape. See it read out on <a href="Operating Loop.dc.html" style="color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold-dim);">the operating loop page →</a></p>
+      <dc-import name="Operating Loop Cycle" hint-size="100%,440px" style="display:block;width:100%;height:440px;border-top:1px solid var(--border);"></dc-import>
+    </div>
+  </section>
+
+  <!-- ITEM 05 · Physics of Light -->
+  <section style="max-width:960px;margin:0 auto;padding:24px 28px;">
+    <div style="display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--border);border-radius:18px;background:var(--surface);overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.4),0 12px 40px rgba(0,0,0,.3);">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px;padding:22px 26px 4px;">
+        <div>
+          <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;color:var(--dim);">A05 · first principles</div>
+          <h2 style="font-family:var(--font-display);font-weight:600;font-size:26px;margin:6px 0 0;">The physics of light</h2>
+        </div>
+        <span style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);border:1px solid rgba(212,168,75,.4);padding:5px 10px;border-radius:999px;">auto-play · canvas engine</span>
+      </div>
+      <p style="color:var(--muted);font-size:15px;margin:0;padding:6px 26px 16px;max-width:78ch;">Not a lighting effect — a real 2D light engine. The shadows are <em style="color:var(--text);font-style:normal;">computed</em>: every occluder's edges are projected away from the source to find exactly what the light can't reach. The source orbits, dimming with the square of distance; grow it from a point into a disc and the edges bloom into <span style="color:var(--info);">umbra and penumbra</span>. The three laws it obeys read out beside it.</p>
+      <dc-import name="Physics of Light" hint-size="100%,515px" style="display:block;width:100%;height:515px;border-top:1px solid var(--border);"></dc-import>
+    </div>
+  </section>
+
+  <!-- ITEM 06 · Categorical Mapping -->
+  <section style="max-width:960px;margin:0 auto;padding:24px 28px;">
+    <div style="display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--border);border-radius:18px;background:var(--surface);overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.4),0 12px 40px rgba(0,0,0,.3);">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px;padding:22px 26px 4px;">
+        <div>
+          <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;color:var(--dim);">A06 · the internal engine</div>
+          <h2 style="font-family:var(--font-display);font-weight:600;font-size:26px;margin:6px 0 0;">The map that keeps the shape</h2>
+        </div>
+        <span style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);border:1px solid rgba(212,168,75,.4);padding:5px 10px;border-radius:999px;">auto-play · 3 laws</span>
+      </div>
+      <p style="color:var(--muted);font-size:15px;margin:0;padding:6px 26px 16px;max-width:78ch;">The machinery the suite keeps under the hood, on a concrete job: writing a launch post. Every step of the work gets exactly one instruction block, the blocks come in the same order as the steps, and — the test that matters — add a step to the work and a matching block appears in the prompt, <em style="color:var(--text);font-style:normal;">in the right place</em>. The prompt mirrors the work, so the two can't drift apart.</p>
+      <dc-import name="Categorical Mapping" hint-size="100%,610px" style="display:block;width:100%;height:610px;border-top:1px solid var(--border);"></dc-import>
+    </div>
+  </section>
+
+  <!-- PER-SKILL ANIMATIONS -->
+  <section style="max-width:960px;margin:0 auto;padding:24px 28px;">
+    <div style="border:1px solid var(--border);border-radius:18px;padding:28px;background:var(--surface);">
+      <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Nine more, one per skill</div>
+      <p style="color:var(--muted);font-size:15px;margin:0 0 18px;max-width:70ch;">Every meta-skill page carries its own signature micro-animation in this same grammar — a fan-out, an audit sweep, a compounding curve, a memory carry. Open any skill to see it.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;">
+        <a href="meta-planning.dc.html" style="text-decoration:none;font-family:var(--font-mono);font-size:13px;padding:8px 12px;border-radius:8px;border:1px solid rgba(212,168,75,.4);color:var(--gold);">meta-planning · fan-out</a>
+        <a href="meta-design.dc.html" style="text-decoration:none;font-family:var(--font-mono);font-size:13px;padding:8px 12px;border-radius:8px;border:1px solid rgba(212,168,75,.4);color:var(--gold);">meta-design · audit sweep</a>
+        <a href="meta-mvp.dc.html" style="text-decoration:none;font-family:var(--font-mono);font-size:13px;padding:8px 12px;border-radius:8px;border:1px solid rgba(212,168,75,.4);color:var(--gold);">meta-mvp · expand-to-bundle</a>
+        <a href="meta-compound.dc.html" style="text-decoration:none;font-family:var(--font-mono);font-size:13px;padding:8px 12px;border-radius:8px;border:1px solid rgba(212,168,75,.4);color:var(--gold);">meta-compound · effort curve</a>
+        <a href="meta-craft.dc.html" style="text-decoration:none;font-family:var(--font-mono);font-size:13px;padding:8px 12px;border-radius:8px;border:1px solid rgba(212,168,75,.4);color:var(--gold);">meta-craft · definition of done</a>
+        <a href="meta-review.dc.html" style="text-decoration:none;font-family:var(--font-mono);font-size:13px;padding:8px 12px;border-radius:8px;border:1px solid rgba(212,168,75,.4);color:var(--gold);">meta-review · lens sweep</a>
+        <a href="meta-research.dc.html" style="text-decoration:none;font-family:var(--font-mono);font-size:13px;padding:8px 12px;border-radius:8px;border:1px solid rgba(212,168,75,.4);color:var(--gold);">meta-research · source convergence</a>
+        <a href="meta-context.dc.html" style="text-decoration:none;font-family:var(--font-mono);font-size:13px;padding:8px 12px;border-radius:8px;border:1px solid rgba(212,168,75,.4);color:var(--gold);">meta-context · memory carry</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid var(--border);margin-top:20px;">
+    <div style="max-width:960px;margin:0 auto;padding:28px 28px 56px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;">
+      <div style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--dim);">MIT © 2026 Manu · CETI.AI</div>
+      <a href="Portfolio Hub.dc.html" style="font-family:var(--font-mono);font-size:13px;color:var(--gold);text-decoration:none;">back to hub →</a>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

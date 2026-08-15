@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0b;--surface:#121214;--raised:#1a1a1d;--border:rgba(255,255,255,.08);--border-strong:rgba(255,255,255,.16);--text:#f5f5f4;--muted:#a1a1a8;--dim:#6b6b72;--gold:#d4a84b;--gold-hover:#e0b85c;--gold-dim:rgba(212,168,75,.18);--info:#7fb5f0;--thought:#b39bfb;--act:#d6a077;--confirm:#9fc99d;--font-sans:"Inter",system-ui,sans-serif;--font-mono:"JetBrains Mono",ui-monospace,monospace;--font-display:"Oswald","Inter",sans-serif;--ease:cubic-bezier(.22,1,.36,1);}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);font-feature-settings:"ss01","cv11";line-height:1.6;-webkit-font-smoothing:antialiased;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+/* mobile hardening */
+html,body{max-width:100%;overflow-x:hidden;}
+img,svg,pre,code,table{max-width:100%;}
+svg{height:auto;}
+pre{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+@media (max-width:760px){
+  [style*="max-width:1080px"],[style*="max-width: 1080px"],
+  [style*="max-width:960px"],[style*="max-width: 960px"],
+  [style*="max-width:900px"],[style*="max-width: 900px"],
+  [style*="max-width:820px"],[style*="max-width: 820px"]{padding-left:18px!important;padding-right:18px!important;}
+  [style*="grid-template-columns:1fr auto"],[style*="grid-template-columns: 1fr auto"],
+  [style*="grid-template-columns:1fr 1fr"],[style*="grid-template-columns: 1fr 1fr"],
+  [style*="minmax(320px"],[style*="minmax(300px"]{grid-template-columns:1fr!important;}
+}
+@media (max-width:480px){
+  [style*="font-size:28px"],[style*="font-size: 28px"]{font-size:22px!important;}
+}
+</style>
+<script>
+(function(){document.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a[href]'):null;if(!a)return;var href=a.getAttribute('href')||'';if(!/\.dc\.html(\?|#|$)/.test(href))return;if(/^https?:\/\//i.test(href)||href.indexOf('//')===0)return;var q=window.location.search;if(!q)return;e.preventDefault();var h=href.indexOf('#'),hash=h>=0?href.slice(h):'',path=(h>=0?href.slice(0,h):href).split('?')[0];window.location.href=path+q+hash;},true);})();
+</script>
+</helmet>
+<div data-screen-label="Operating Loop page" style="background:var(--bg);color:var(--text);min-height:100vh;font-family:var(--font-sans);">
+
+  <!-- NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(10,10,11,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);">
+    <div style="max-width:1080px;margin:0 auto;padding:0 28px;height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
+      <a href="Portfolio Hub.dc.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:.02em;">
+        <span style="width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold);"></span>META<span style="color:var(--gold);">·</span>SUITE
+      </a>
+      <nav style="display:flex;gap:6px;align-items:center;">
+        <a href="Overview.dc.html" style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);padding:9px 12px;border-radius:8px;text-decoration:none;transition:color .2s,background .2s;" style-hover="color:var(--text);background:var(--raised);">Overview</a>
+        <a href="Animation Library.dc.html" style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);padding:9px 12px;border-radius:8px;text-decoration:none;transition:color .2s,background .2s;" style-hover="color:var(--text);background:var(--raised);">Animations</a>
+        <a href="#arcs" style="font-family:var(--font-mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:#15110a;background:var(--gold);padding:10px 16px;border-radius:8px;text-decoration:none;transition:background .2s;" style-hover="background:var(--gold-hover);">The four arcs</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section style="max-width:1080px;margin:0 auto;padding:64px 28px 24px;">
+    <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;">How to run the suite · the recipe, not the menu</div>
+    <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(36px,5.2vw,60px);line-height:1.03;letter-spacing:-.01em;margin:0;max-width:20ch;">The grid tells you what the nine <span style="color:var(--gold);">are</span>. This tells you the <span style="color:var(--gold);">order</span> to run them in.</h1>
+    <p style="color:var(--muted);font-size:18px;line-height:1.55;margin:22px 0 0;max-width:60ch;">The make / keep grid is a menu. On its own it doesn't say where to start, what feeds what, or why the work should get cheaper over time. The order below does — because every step hands a finished output to the next, and the last step feeds the first.</p>
+  </section>
+
+  <!-- LOOP FIGURE + NARRATION -->
+  <section style="max-width:1080px;margin:0 auto;padding:16px 28px 20px;">
+    <div style="border:1px solid var(--border);border-radius:20px;background:var(--surface);overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.4),0 14px 44px rgba(0,0,0,.35);display:grid;grid-template-columns:1.35fr 1fr;">
+      <div style="border-right:1px solid var(--border);min-width:0;">
+        <dc-import name="Operating Loop Cycle" hint-size="100%,440px" style="display:block;width:100%;height:440px;"></dc-import>
+      </div>
+      <!-- narration band -->
+      <div style="padding:30px 30px;display:flex;flex-direction:column;justify-content:center;gap:20px;">
+        <div style="font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);">What's happening</div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;gap:12px;align-items:baseline;"><span style="font-family:var(--font-mono);font-size:11px;color:var(--thought);border:1px solid rgba(179,155,251,.4);border-radius:6px;padding:2px 7px;flex:none;">1·2</span><span style="font-size:14.5px;color:var(--text);"><strong style="font-weight:600;">Frame.</strong> <span style="color:var(--muted);">Start warm from last cycle's notes, then ground the gap in real sources.</span></span></div>
+          <div style="display:flex;gap:12px;align-items:baseline;"><span style="font-family:var(--font-mono);font-size:11px;color:var(--gold);border:1px solid rgba(212,168,75,.4);border-radius:6px;padding:2px 7px;flex:none;">3·4</span><span style="font-size:14.5px;color:var(--text);"><strong style="font-weight:600;">Shape.</strong> <span style="color:var(--muted);">Turn the gap into a &ldquo;how to think&rdquo; scaffold, then a typed, parallelizable plan.</span></span></div>
+          <div style="display:flex;gap:12px;align-items:baseline;"><span style="font-family:var(--font-mono);font-size:11px;color:var(--act);border:1px solid rgba(214,160,119,.4);border-radius:6px;padding:2px 7px;flex:none;">5·6·7</span><span style="font-size:14.5px;color:var(--text);"><strong style="font-weight:600;">Make.</strong> <span style="color:var(--muted);">Derive the schema, assemble the bundle, build it to survive contact with reality.</span></span></div>
+          <div style="display:flex;gap:12px;align-items:baseline;"><span style="font-family:var(--font-mono);font-size:11px;color:var(--confirm);border:1px solid rgba(159,201,157,.4);border-radius:6px;padding:2px 7px;flex:none;">8·9</span><span style="font-size:14.5px;color:var(--text);"><strong style="font-weight:600;">Keep.</strong> <span style="color:var(--muted);">Review adversarially for one reusable lesson, capture it &mdash; then feed it back to step 1.</span></span></div>
+        </div>
+        <div style="border-top:1px solid var(--border);padding-top:16px;font-size:13px;color:var(--dim);line-height:1.5;"><strong style="color:var(--muted);font-weight:600;">Sustainable</strong> = each step's output is the next step's input, and step 9 writes back into step 1 &mdash; so the next pass re-derives nothing.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE FOUR ARCS -->
+  <section id="arcs" style="max-width:1080px;margin:0 auto;padding:48px 28px 20px;">
+    <div style="max-width:64ch;margin-bottom:30px;">
+      <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">The four arcs</div>
+      <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(28px,3.4vw,40px);line-height:1.08;margin:0;">Nine skills, four moves, one direction.</h2>
+      <p style="color:var(--muted);font-size:17px;margin:16px 0 0;">Each arc ends by handing a named artifact to the next. That hand-off is the whole trick: you never start a step from a blank page, and you never re-derive what an earlier step already settled.</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px;">
+
+      <!-- ARC: FRAME -->
+      <div style="border:1px solid var(--border);border-left:4px solid var(--thought);border-radius:0 16px 16px 0;background:var(--surface);padding:24px 26px;">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
+          <div style="display:flex;align-items:baseline;gap:14px;"><span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--thought);font-weight:500;">Arc 01 · Frame</span><span style="font-family:var(--font-display);font-weight:600;font-size:20px;">Start warm, on solid ground</span></div>
+          <span style="font-family:var(--font-mono);font-size:12px;color:var(--dim);">hands off ↓ a grounded brief</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;">
+          <a href="meta-context.dc.html" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);border-radius:12px;padding:18px;background:var(--raised);transition:transform .2s var(--ease),border-color .2s;" style-hover="transform:translateY(-3px);border-color:rgba(179,155,251,.5);">
+            <div style="display:flex;align-items:center;gap:10px;"><span style="font-family:var(--font-mono);font-size:13px;color:var(--thought);border:1px solid rgba(179,155,251,.4);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex:none;">1</span><span style="font-family:var(--font-mono);font-size:15px;color:var(--text);">meta-context</span></div>
+            <p style="color:var(--muted);font-size:13.5px;margin:12px 0 0;line-height:1.5;">Load what the last cycle left behind and decide what to keep in working memory.</p>
+            <div style="margin-top:12px;font-family:var(--font-mono);font-size:11px;color:var(--thought);">→ a warm-start memory scaffold</div>
+          </a>
+          <a href="meta-research.dc.html" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);border-radius:12px;padding:18px;background:var(--raised);transition:transform .2s var(--ease),border-color .2s;" style-hover="transform:translateY(-3px);border-color:rgba(179,155,251,.5);">
+            <div style="display:flex;align-items:center;gap:10px;"><span style="font-family:var(--font-mono);font-size:13px;color:var(--thought);border:1px solid rgba(179,155,251,.4);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex:none;">2</span><span style="font-family:var(--font-mono);font-size:15px;color:var(--text);">meta-research</span></div>
+            <p style="color:var(--muted);font-size:13.5px;margin:12px 0 0;line-height:1.5;">Ground the specific gap in real, cross-verified sources before shaping anything.</p>
+            <div style="margin-top:12px;font-family:var(--font-mono);font-size:11px;color:var(--thought);">→ a cited brief with confidence</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ARC: SHAPE -->
+      <div style="border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:0 16px 16px 0;background:var(--surface);padding:24px 26px;">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
+          <div style="display:flex;align-items:baseline;gap:14px;"><span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500;">Arc 02 · Shape</span><span style="font-family:var(--font-display);font-weight:600;font-size:20px;">Turn the brief into a structure</span></div>
+          <span style="font-family:var(--font-mono);font-size:12px;color:var(--dim);">hands off ↓ an executable plan</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;">
+          <a href="meta-prompting.dc.html" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);border-radius:12px;padding:18px;background:var(--raised);transition:transform .2s var(--ease),border-color .2s;" style-hover="transform:translateY(-3px);border-color:rgba(212,168,75,.5);">
+            <div style="display:flex;align-items:center;gap:10px;"><span style="font-family:var(--font-mono);font-size:13px;color:var(--gold);border:1px solid rgba(212,168,75,.4);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex:none;">3</span><span style="font-family:var(--font-mono);font-size:15px;color:var(--text);">meta-prompting</span></div>
+            <p style="color:var(--muted);font-size:13.5px;margin:12px 0 0;line-height:1.5;">Lift the gap into a typed &ldquo;how to think&rdquo; scaffold that fits the whole category, not one instance.</p>
+            <div style="margin-top:12px;font-family:var(--font-mono);font-size:11px;color:var(--gold);">→ a reusable meta-prompt</div>
+          </a>
+          <a href="meta-planning.dc.html" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);border-radius:12px;padding:18px;background:var(--raised);transition:transform .2s var(--ease),border-color .2s;" style-hover="transform:translateY(-3px);border-color:rgba(212,168,75,.5);">
+            <div style="display:flex;align-items:center;gap:10px;"><span style="font-family:var(--font-mono);font-size:13px;color:var(--gold);border:1px solid rgba(212,168,75,.4);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex:none;">4</span><span style="font-family:var(--font-mono);font-size:15px;color:var(--text);">meta-planning</span></div>
+            <p style="color:var(--muted);font-size:13.5px;margin:12px 0 0;line-height:1.5;">Turn that scaffold into a typed work-unit graph &mdash; what runs in parallel, what must wait, where the gates are.</p>
+            <div style="margin-top:12px;font-family:var(--font-mono);font-size:11px;color:var(--gold);">→ a fresh-agent-executable plan</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ARC: MAKE -->
+      <div style="border:1px solid var(--border);border-left:4px solid var(--act);border-radius:0 16px 16px 0;background:var(--surface);padding:24px 26px;">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
+          <div style="display:flex;align-items:baseline;gap:14px;"><span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--act);font-weight:500;">Arc 03 · Make</span><span style="font-family:var(--font-display);font-weight:600;font-size:20px;">Build the thing, built to last</span></div>
+          <span style="font-family:var(--font-mono);font-size:12px;color:var(--dim);">hands off ↓ a shipped artifact</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
+          <a href="meta-design.dc.html" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);border-radius:12px;padding:18px;background:var(--raised);transition:transform .2s var(--ease),border-color .2s;" style-hover="transform:translateY(-3px);border-color:rgba(214,160,119,.5);">
+            <div style="display:flex;align-items:center;gap:10px;"><span style="font-family:var(--font-mono);font-size:13px;color:var(--act);border:1px solid rgba(214,160,119,.4);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex:none;">5</span><span style="font-family:var(--font-mono);font-size:15px;color:var(--text);">meta-design</span></div>
+            <p style="color:var(--muted);font-size:13.5px;margin:12px 0 0;line-height:1.5;">Derive the medium-specific design schema and tokens, then render against them.</p>
+            <div style="margin-top:12px;font-family:var(--font-mono);font-size:11px;color:var(--act);">→ a schema + the system that makes it</div>
+          </a>
+          <a href="meta-mvp.dc.html" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);border-radius:12px;padding:18px;background:var(--raised);transition:transform .2s var(--ease),border-color .2s;" style-hover="transform:translateY(-3px);border-color:rgba(214,160,119,.5);">
+            <div style="display:flex;align-items:center;gap:10px;"><span style="font-family:var(--font-mono);font-size:13px;color:var(--act);border:1px solid rgba(214,160,119,.4);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex:none;">6</span><span style="font-family:var(--font-mono);font-size:15px;color:var(--text);">meta-mvp</span></div>
+            <p style="color:var(--muted);font-size:13.5px;margin:12px 0 0;line-height:1.5;">Assemble the full deliverable bundle end-to-end when the output is a whole new thing.</p>
+            <div style="margin-top:12px;font-family:var(--font-mono);font-size:11px;color:var(--act);">→ a WOW-grade bundle</div>
+          </a>
+          <a href="meta-craft.dc.html" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);border-radius:12px;padding:18px;background:var(--raised);transition:transform .2s var(--ease),border-color .2s;" style-hover="transform:translateY(-3px);border-color:rgba(214,160,119,.5);">
+            <div style="display:flex;align-items:center;gap:10px;"><span style="font-family:var(--font-mono);font-size:13px;color:var(--act);border:1px solid rgba(214,160,119,.4);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex:none;">7</span><span style="font-family:var(--font-mono);font-size:15px;color:var(--text);">meta-craft</span></div>
+            <p style="color:var(--muted);font-size:13.5px;margin:12px 0 0;line-height:1.5;">Hold it to a craft constitution and an evidence-based Definition of Done before it ships.</p>
+            <div style="margin-top:12px;font-family:var(--font-mono);font-size:11px;color:var(--act);">→ a proven, change-ready artifact</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ARC: KEEP -->
+      <div style="border:1px solid var(--border);border-left:4px solid var(--confirm);border-radius:0 16px 16px 0;background:var(--surface);padding:24px 26px;">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
+          <div style="display:flex;align-items:baseline;gap:14px;"><span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--confirm);font-weight:500;">Arc 04 · Keep</span><span style="font-family:var(--font-display);font-weight:600;font-size:20px;">Learn from it, bank the lesson</span></div>
+          <span style="font-family:var(--font-mono);font-size:12px;color:var(--confirm);">hands off ↺ back to step 1</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;">
+          <a href="meta-review.dc.html" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);border-radius:12px;padding:18px;background:var(--raised);transition:transform .2s var(--ease),border-color .2s;" style-hover="transform:translateY(-3px);border-color:rgba(159,201,157,.5);">
+            <div style="display:flex;align-items:center;gap:10px;"><span style="font-family:var(--font-mono);font-size:13px;color:var(--confirm);border:1px solid rgba(159,201,157,.4);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex:none;">8</span><span style="font-family:var(--font-mono);font-size:15px;color:var(--text);">meta-review</span></div>
+            <p style="color:var(--muted);font-size:13.5px;margin:12px 0 0;line-height:1.5;">Run adversarial, multi-lens review; return prioritized findings and one reusable lesson.</p>
+            <div style="margin-top:12px;font-family:var(--font-mono);font-size:11px;color:var(--confirm);">→ a prioritized fix list + a lesson atom</div>
+          </a>
+          <a href="meta-compound.dc.html" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);border-radius:12px;padding:18px;background:var(--raised);transition:transform .2s var(--ease),border-color .2s;" style-hover="transform:translateY(-3px);border-color:rgba(159,201,157,.5);">
+            <div style="display:flex;align-items:center;gap:10px;"><span style="font-family:var(--font-mono);font-size:13px;color:var(--confirm);border:1px solid rgba(159,201,157,.4);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex:none;">9</span><span style="font-family:var(--font-mono);font-size:15px;color:var(--text);">meta-compound</span></div>
+            <p style="color:var(--muted);font-size:13.5px;margin:12px 0 0;line-height:1.5;">Capture that lesson as a durable asset and update the index &mdash; so the next cycle finds it and starts cheaper. This writes back into step&nbsp;1.</p>
+            <div style="margin-top:12px;font-family:var(--font-mono);font-size:11px;color:var(--confirm);">↺ feeds meta-context for the next pass</div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHY SUSTAINABLE / RECURSION -->
+  <section style="max-width:1080px;margin:0 auto;padding:44px 28px 20px;">
+    <div style="border:1px solid rgba(159,201,157,.28);border-radius:20px;padding:38px 34px;background:linear-gradient(180deg,rgba(159,201,157,.05),var(--surface));">
+      <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--confirm);margin-bottom:14px;">Why the order holds up</div>
+      <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(24px,3vw,34px);line-height:1.1;margin:0 0 8px;max-width:24ch;">This very page was built by running the loop.</h2>
+      <p style="color:var(--muted);font-size:16px;margin:16px 0 0;max-width:68ch;">The portfolio has run these four arcs for four cycles &mdash; not as a diagram, but literally. The proof is in the repo:</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:22px;">
+        <div style="border:1px solid var(--border);border-radius:12px;padding:16px 18px;background:var(--bg);"><div style="font-family:var(--font-mono);font-size:11px;color:var(--thought);margin-bottom:6px;">FRAME</div><div style="font-size:14px;color:var(--text);"><strong style="font-weight:600;">HANDOFF.md</strong> starts every session warm &mdash; that&rsquo;s meta-context&rsquo;s writeback in practice.</div></div>
+        <div style="border:1px solid var(--border);border-radius:12px;padding:16px 18px;background:var(--bg);"><div style="font-family:var(--font-mono);font-size:11px;color:var(--confirm);margin-bottom:6px;">KEEP · review</div><div style="font-size:14px;color:var(--text);">Iteration 3&rsquo;s &ldquo;does a cold reader get it?&rdquo; pass was a meta-review lens that found the missing narration.</div></div>
+        <div style="border:1px solid var(--border);border-radius:12px;padding:16px 18px;background:var(--bg);"><div style="font-family:var(--font-mono);font-size:11px;color:var(--confirm);margin-bottom:6px;">KEEP · compound</div><div style="font-size:14px;color:var(--text);">The queued candidate lenses are the compounding index &mdash; this page was the top one, now cashed in.</div></div>
+      </div>
+      <p style="color:var(--muted);font-size:15px;margin:24px 0 0;max-width:68ch;">That&rsquo;s the test of a sustainable order: you should be able to point at the artifacts each arc left behind. Watch the cycle run in <a href="Animation Library.dc.html" style="color:var(--confirm);text-decoration:none;border-bottom:1px solid rgba(159,201,157,.3);">the animation library</a>, or start at the <a href="Overview.dc.html" style="color:var(--confirm);text-decoration:none;border-bottom:1px solid rgba(159,201,157,.3);">overview</a>.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="border-top:1px solid var(--border);margin-top:30px;">
+    <div style="max-width:1080px;margin:0 auto;padding:34px 28px 56px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;">
+      <div style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--dim);">MIT © 2026 Manu · CETI.AI</div>
+      <a href="https://github.com/manutej/meta-suite" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:13px;color:var(--gold);text-decoration:none;">github.com/manutej/meta-suite ↗</a>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

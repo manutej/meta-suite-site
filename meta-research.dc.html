@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0b;--surface:#121214;--raised:#1a1a1d;--border:rgba(255,255,255,.08);--border-strong:rgba(255,255,255,.16);--text:#f5f5f4;--muted:#a1a1a8;--dim:#6b6b72;--gold:#d4a84b;--gold-hover:#e0b85c;--gold-dim:rgba(212,168,75,.18);--info:#7fb5f0;--thought:#b39bfb;--act:#d6a077;--confirm:#9fc99d;--font-sans:"Inter",system-ui,sans-serif;--font-mono:"JetBrains Mono",ui-monospace,monospace;--font-display:"Oswald","Inter",sans-serif;--ease:cubic-bezier(.22,1,.36,1);}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);font-feature-settings:"ss01","cv11";line-height:1.6;-webkit-font-smoothing:antialiased;}
+@keyframes srcPulse{0%{offset-distance:0%;opacity:0}10%{opacity:1}90%{opacity:1}100%{offset-distance:100%;opacity:0}}
+@keyframes verifyGlow{0%,55%{opacity:.2}70%{opacity:.95}100%{opacity:.2}}
+@keyframes confFill{0%{width:0}100%{width:120px}}
+@keyframes capA{0%{opacity:1}33%{opacity:1}34%{opacity:0}100%{opacity:0}}
+@keyframes capB{0%{opacity:0}34%{opacity:0}35%{opacity:1}66%{opacity:1}67%{opacity:0}100%{opacity:0}}
+@keyframes capC{0%{opacity:0}67%{opacity:0}68%{opacity:1}100%{opacity:1}}
+@keyframes capDot{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.25);opacity:1}}
+[data-pausable]:hover,[data-pausable]:hover *{animation-play-state:paused !important;}
+
+/* mobile hardening */
+html,body{max-width:100%;overflow-x:hidden;}
+img,svg,pre,code,table{max-width:100%;}
+svg{height:auto;}
+pre{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+@media (max-width:760px){
+  [style*="max-width:1080px"],[style*="max-width: 1080px"],
+  [style*="max-width:960px"],[style*="max-width: 960px"],
+  [style*="max-width:900px"],[style*="max-width: 900px"],
+  [style*="max-width:820px"],[style*="max-width: 820px"]{padding-left:18px!important;padding-right:18px!important;}
+  [style*="grid-template-columns:1fr auto"],[style*="grid-template-columns: 1fr auto"],
+  [style*="grid-template-columns:1fr 1fr"],[style*="grid-template-columns: 1fr 1fr"],
+  [style*="minmax(320px"],[style*="minmax(300px"]{grid-template-columns:1fr!important;}
+}
+@media (max-width:480px){
+  [style*="font-size:28px"],[style*="font-size: 28px"]{font-size:22px!important;}
+}
+</style>
+<script>
+(function(){document.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a[href]'):null;if(!a)return;var href=a.getAttribute('href')||'';if(!/\.dc\.html(\?|#|$)/.test(href))return;if(/^https?:\/\//i.test(href)||href.indexOf('//')===0)return;var q=window.location.search;if(!q)return;e.preventDefault();var h=href.indexOf('#'),hash=h>=0?href.slice(h):'',path=(h>=0?href.slice(0,h):href).split('?')[0];window.location.href=path+q+hash;},true);})();
+</script>
+</helmet>
+<div data-screen-label="meta-research skill page" style="background:var(--bg);color:var(--text);min-height:100vh;font-family:var(--font-sans);">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(10,10,11,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);">
+    <div style="max-width:820px;margin:0 auto;padding:0 28px;height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
+      <a href="Portfolio Hub.dc.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-family:var(--font-display);font-weight:600;font-size:19px;letter-spacing:.02em;"><span style="width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold);"></span>META<span style="color:var(--gold);">·</span>SUITE</a>
+      <a href="Overview.dc.html#skills" style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);padding:9px 12px;border-radius:8px;text-decoration:none;transition:color .2s,background .2s;" style-hover="color:var(--text);background:var(--raised);">← all nine</a>
+    </div>
+  </header>
+
+  <section style="max-width:820px;margin:0 auto;padding:56px 28px 8px;">
+    <div style="font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:var(--dim);margin-bottom:24px;"><a href="Overview.dc.html" style="color:var(--dim);text-decoration:none;">overview</a> / <a href="Overview.dc.html#skills" style="color:var(--dim);text-decoration:none;">skills</a> / <span style="color:var(--muted);">meta-research</span></div>
+    <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--confirm);margin-bottom:16px;">Skill 08 · keep axis</div>
+    <h1 style="font-family:var(--font-mono);font-weight:500;font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.01em;color:var(--gold);margin:0;">meta-research</h1>
+    <p style="color:var(--text);font-size:20px;line-height:1.5;margin:22px 0 0;max-width:56ch;">A rigorous, cross-verified, source-cited brief — with explicit <em style="font-style:italic;color:var(--gold);">confidence</em> and reusable knowledge atoms.</p>
+  </section>
+
+  <section style="max-width:820px;margin:0 auto;padding:32px 28px;">
+    <figure data-pausable="true" style="margin:0;border:1px solid var(--border);border-radius:16px;background:var(--surface);overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.4),0 12px 40px rgba(0,0,0,.35);">
+      <div style="width:100%;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:8px;">
+      <svg viewBox="0 0 620 336" width="100%" style="max-width:620px;display:block;overflow:visible;" font-family="var(--font-sans)" aria-label="Several independent sources feed into one node; when they agree the node is verified and a confidence bar fills. A caption narrates each step: gather sources, cross-check them, then confidence rises where they agree and conflict is flagged.">
+        <text x="30" y="24" font-family="var(--font-mono)" font-size="10.5" letter-spacing="1.5" fill="var(--dim)">MANY SOURCES → ONE VERIFIED, CONFIDENCE-RATED CLAIM</text>
+        <!-- sources -->
+        <g font-family="var(--font-mono)" font-size="10" fill="var(--dim)">
+          <rect x="30" y="50" width="120" height="26" rx="7" fill="var(--surface)" stroke="var(--info)" stroke-width="1"></rect><text x="44" y="67" fill="var(--info)">source A</text>
+          <rect x="30" y="94" width="120" height="26" rx="7" fill="var(--surface)" stroke="var(--thought)" stroke-width="1"></rect><text x="44" y="111" fill="var(--thought)">source B</text>
+          <rect x="30" y="138" width="120" height="26" rx="7" fill="var(--surface)" stroke="var(--act)" stroke-width="1"></rect><text x="44" y="155" fill="var(--act)">source C</text>
+          <rect x="30" y="182" width="120" height="26" rx="7" fill="var(--surface)" stroke="var(--confirm)" stroke-width="1"></rect><text x="44" y="199" fill="var(--confirm)">source D</text>
+        </g>
+        <!-- edges -->
+        <g fill="none" stroke="var(--border-strong)" stroke-width="1.5">
+          <path d="M150 63 C 230 63 250 129 320 129"></path>
+          <path d="M150 107 C 230 107 250 129 320 129"></path>
+          <path d="M150 151 C 230 151 250 129 320 129"></path>
+          <path d="M150 195 C 230 195 250 129 320 129"></path>
+        </g>
+        <!-- pulses -->
+        <circle r="4.5" fill="var(--info)" style="offset-path:path('M150 63 C 230 63 250 129 320 129');animation:srcPulse 4s var(--ease) infinite;animation-delay:0s;"></circle>
+        <circle r="4.5" fill="var(--thought)" style="offset-path:path('M150 107 C 230 107 250 129 320 129');animation:srcPulse 4s var(--ease) infinite;animation-delay:.3s;"></circle>
+        <circle r="4.5" fill="var(--act)" style="offset-path:path('M150 151 C 230 151 250 129 320 129');animation:srcPulse 4s var(--ease) infinite;animation-delay:.6s;"></circle>
+        <circle r="4.5" fill="var(--confirm)" style="offset-path:path('M150 195 C 230 195 250 129 320 129');animation:srcPulse 4s var(--ease) infinite;animation-delay:.9s;"></circle>
+        <!-- verified node -->
+        <circle cx="340" cy="129" r="34" fill="none" stroke="var(--gold-dim)" stroke-width="1.5" style="animation:verifyGlow 4s var(--ease) infinite;"></circle>
+        <circle cx="340" cy="129" r="24" fill="var(--raised)" stroke="var(--gold)" stroke-width="1.5"></circle>
+        <text x="340" y="126" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--gold)">CROSS-</text>
+        <text x="340" y="138" text-anchor="middle" font-family="var(--font-mono)" font-size="9" fill="var(--gold)">VERIFIED</text>
+        <!-- confidence -->
+        <text x="410" y="96" font-family="var(--font-mono)" font-size="10" letter-spacing="1" fill="var(--dim)">CONFIDENCE</text>
+        <rect x="410" y="106" width="130" height="16" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width="1"></rect>
+        <rect x="415" y="110" height="8" rx="4" fill="var(--confirm)" width="0" style="animation:confFill 4s var(--ease) infinite;max-width:120px;"></rect>
+        <text x="410" y="150" font-family="var(--font-mono)" font-size="10" fill="var(--confirm)">high · 4 sources agree</text>
+        <text x="410" y="170" font-family="var(--font-mono)" font-size="9" fill="var(--dim)">disagreement → flagged, not hidden</text>
+        <!-- stepped narration caption -->
+        <line x1="30" y1="258" x2="590" y2="258" stroke="var(--border)" stroke-width="1"></line>
+        <circle cx="38" cy="296" r="5" fill="var(--gold)" style="transform-origin:38px 296px;animation:capDot 1.3s ease-in-out infinite;"></circle>
+        <text x="54" y="284" font-family="var(--font-mono)" font-size="9" letter-spacing="1.5" fill="var(--dim)">WHAT'S HAPPENING</text>
+        <text x="54" y="303" font-size="14" font-weight="600" fill="var(--text)" style="animation:capA 4s step-end infinite;">1 · Gather several sources that don't depend on each other.</text>
+        <text x="54" y="303" font-size="14" font-weight="600" fill="var(--text)" style="opacity:0;animation:capB 4s step-end infinite;">2 · Check every claim against all of them, not just one.</text>
+        <text x="54" y="303" font-size="14" font-weight="600" fill="var(--text)" style="opacity:0;animation:capC 4s step-end infinite;">3 · Agree → confidence rises. Conflict → it gets flagged.</text>
+        <text x="54" y="322" font-size="11.5" fill="var(--muted)">Confidence just means: how many independent sources back this, and how well they agree.</text>
+      </svg>
+      </div>
+      <figcaption style="border-top:1px solid var(--border);padding:12px 18px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--dim);">FIG — independent sources converge; agreement raises confidence, conflict gets flagged</figcaption>
+    </figure>
+  </section>
+
+  <section style="max-width:820px;margin:0 auto;padding:32px 28px;">
+    <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">// what it does</div>
+    <p style="color:var(--muted);font-size:17px;line-height:1.7;margin:0 0 16px;max-width:66ch;">A confident-sounding paragraph is not research. <strong style="color:var(--text);font-weight:600;">meta-research</strong> gathers <strong style="color:var(--text);font-weight:600;">independent sources, cross-checks them against each other,</strong> and states how sure it is — with the citation attached to every claim, not a bibliography dumped at the end.</p>
+    <p style="color:var(--muted);font-size:17px;line-height:1.7;margin:0;max-width:66ch;">Where sources disagree, it says so instead of picking a winner. And it breaks findings into reusable knowledge atoms — small, cited facts you can carry into the next question.</p>
+  </section>
+
+  <section style="max-width:820px;margin:0 auto;padding:32px 28px;">
+    <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;">// the brief</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+      <div style="border:1px solid var(--border);border-radius:14px;padding:22px;background:var(--surface);"><div style="font-family:var(--font-mono);font-size:15px;color:var(--gold);margin-bottom:10px;">cross-verified</div><p style="color:var(--muted);font-size:14.5px;margin:0;line-height:1.6;">Claims checked against independent sources, not one confident page.</p></div>
+      <div style="border:1px solid var(--border);border-radius:14px;padding:22px;background:var(--surface);"><div style="font-family:var(--font-mono);font-size:15px;color:var(--gold);margin-bottom:10px;">confidence, stated</div><p style="color:var(--muted);font-size:14.5px;margin:0;line-height:1.6;">Every finding says how sure — and flags where sources conflict.</p></div>
+      <div style="border:1px solid var(--border);border-radius:14px;padding:22px;background:var(--surface);"><div style="font-family:var(--font-mono);font-size:15px;color:var(--gold);margin-bottom:10px;">knowledge atoms</div><p style="color:var(--muted);font-size:14.5px;margin:0;line-height:1.6;">Small, cited facts you can reuse in the next question.</p></div>
+    </div>
+  </section>
+
+  <section style="max-width:820px;margin:0 auto;padding:32px 28px;">
+    <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">// invoke it</div>
+    <div style="background:var(--raised);border:1px solid var(--border-strong);border-radius:12px;padding:16px 18px;font-family:var(--font-mono);font-size:14px;color:var(--text);overflow-x:auto;margin-bottom:14px;"><span style="color:var(--gold);">/meta-research</span> <span style="color:var(--muted);">&lt;the question you need to be sure about&gt;</span></div>
+    <div style="border:1px solid var(--border);border-left:4px solid var(--confirm);border-radius:0 12px 12px 0;padding:16px 20px;background:rgba(159,201,157,.1);"><p style="color:var(--text);font-size:15px;margin:0;line-height:1.6;">Returns a cross-verified, source-cited brief with explicit confidence and reusable knowledge atoms — so you can act on it, and defend it when someone asks how you know.</p></div>
+  </section>
+
+  <section style="max-width:820px;margin:0 auto;padding:32px 28px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
+      <div style="border:1px solid var(--border);border-radius:12px;padding:16px 18px;background:var(--surface);"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold);margin-bottom:10px;"></span><div style="font-weight:600;font-size:14px;">Cited per claim</div><p style="color:var(--dim);font-size:13px;margin:6px 0 0;">Not a dumped bibliography.</p></div>
+      <div style="border:1px solid var(--border);border-radius:12px;padding:16px 18px;background:var(--surface);"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--confirm);margin-bottom:10px;"></span><div style="font-weight:600;font-size:14px;">States confidence</div><p style="color:var(--dim);font-size:13px;margin:6px 0 0;">No false certainty.</p></div>
+      <div style="border:1px solid var(--border);border-radius:12px;padding:16px 18px;background:var(--surface);"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--info);margin-bottom:10px;"></span><div style="font-weight:600;font-size:14px;">Shows conflict</div><p style="color:var(--dim);font-size:13px;margin:6px 0 0;">Disagreement isn't hidden.</p></div>
+      <div style="border:1px solid var(--border);border-radius:12px;padding:16px 18px;background:var(--surface);"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--thought);margin-bottom:10px;"></span><div style="font-weight:600;font-size:14px;">It compounds</div><p style="color:var(--dim);font-size:13px;margin:6px 0 0;">Atoms carry forward.</p></div>
+    </div>
+  </section>
+
+    <!-- GROUNDING -->
+  <section style="max-width:820px;margin:0 auto;padding:32px 28px;">
+    <div style="border:1px solid var(--border);border-radius:14px;padding:24px;background:var(--surface);">
+      <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Grounding</div>
+      <p style="color:var(--muted);font-size:14px;margin:0 0 20px;line-height:1.55;max-width:62ch;">The ideas here aren't invented — the skill generalizes established practice into one reusable, task-agnostic move. Below: the prior art it builds on, and the in-repo contract it actually runs on.</p>
+      <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:0 0 2px;">Prior art</div>
+      <div style="padding:13px 0;border-bottom:1px solid var(--border);font-size:15px;color:var(--muted);line-height:1.55;"><span style="color:var(--text);font-weight:600;">Triangulation</span> — corroborate every load-bearing claim across independent sources; flag anything that rests on one.</div>
+      <div style="padding:13px 0;border-bottom:1px solid var(--border);font-size:15px;color:var(--muted);line-height:1.55;"><span style="color:var(--text);font-weight:600;">GRADE</span> — grading the certainty of evidence (high / moderate / low) — report confidence per conclusion; never launder inference as fact.</div>
+      <div style="padding:13px 0;border-bottom:1px solid var(--border);font-size:15px;color:var(--muted);line-height:1.55;"><span style="color:var(--text);font-weight:600;">Disconfirming evidence</span> — actively seek the case against a claim, not just the case for it (the adversarial cross-check).</div>
+      <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:24px 0 2px;">In this suite</div>
+      <div style="padding:13px 0;font-size:15px;color:var(--muted);line-height:1.55;">The six-stage pipeline <span style="font-family:var(--font-mono);font-size:13px;color:var(--gold);">references/method.md</span> — decompose → fan out → triage → cross-verify → synthesize → capture.</div>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid var(--border);margin-top:20px;">
+    <div style="max-width:820px;margin:0 auto;padding:28px 28px 56px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;">
+      <a href="meta-review.dc.html" style="font-family:var(--font-mono);font-size:13px;color:var(--muted);text-decoration:none;" style-hover="color:var(--gold);">← meta-review</a>
+      <a href="meta-context.dc.html" style="font-family:var(--font-mono);font-size:13px;color:var(--gold);text-decoration:none;">next · meta-context →</a>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>
