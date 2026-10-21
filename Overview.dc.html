@@ -3,6 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meta-Suite · Overview</title>
+<meta name="description" content="Nine task-agnostic meta-skills that emit the reusable structure solving a whole category of work. Works in Claude Code, the Claude app, Codex, Cursor, ChatGPT and Grok.">
+<meta property="og:title" content="Meta-Suite · Overview">
+<meta property="og:description" content="Nine task-agnostic meta-skills that emit the reusable structure solving a whole category of work. Works in Claude Code, the Claude app, Codex, Cursor, ChatGPT and Grok.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Ccircle cx=%278%27 cy=%278%27 r=%276%27 fill=%27%23d4a84b%27/%3E%3C/svg%3E">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -19,11 +26,14 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-sans
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
 
 /* mobile hardening */
-html,body{max-width:100%;overflow-x:hidden;}
+html,body{max-width:100%;overflow-x:clip;}
 img,svg,pre,code,table{max-width:100%;}
 svg{height:auto;}
 pre{overflow-x:auto;-webkit-overflow-scrolling:touch;}
 @media (max-width:760px){
+  header > div > :last-child > a:not(:last-child){display:none!important;}
+  [style*="grid-template-columns:1.35fr 1fr"],[style*="grid-template-columns: 1.35fr 1fr"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns:1.35fr 1fr"] > div,[style*="grid-template-columns: 1.35fr 1fr"] > div{border-right:0!important;}
   [style*="max-width:1080px"],[style*="max-width: 1080px"],
   [style*="max-width:960px"],[style*="max-width: 960px"],
   [style*="max-width:900px"],[style*="max-width: 900px"],
@@ -89,7 +99,7 @@ pre{overflow-x:auto;-webkit-overflow-scrolling:touch;}
       <p style="color:var(--muted);font-size:17px;margin:16px 0 0;">Every skill sits on one of two axes. The <strong style="color:var(--text);font-weight:600;">make</strong> skills take an idea to a shipped thing. The <strong style="color:var(--text);font-weight:600;">keep</strong> skills make sure it stays good — durable, honest, and improving on its own.</p>
     </div>
     <figure style="margin:0 0 36px;border:1px solid var(--border);border-radius:16px;background:var(--surface);overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.4),0 12px 40px rgba(0,0,0,.35);">
-      <dc-import name="Make Keep Axes" hint-size="100%,400px" style="display:block;width:100%;height:400px;"></dc-import>
+      <dc-import name="Make Keep Axes" hint-size="100%,440px" style="display:block;width:100%;height:440px;"></dc-import>
       <figcaption style="border-top:1px solid var(--border);padding:12px 18px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--dim);">FIG.02 — make is a line, keep is a loop</figcaption>
     </figure>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
@@ -219,20 +229,28 @@ pre{overflow-x:auto;-webkit-overflow-scrolling:touch;}
   <section id="install" style="max-width:1080px;margin:0 auto;padding:60px 28px;">
     <div style="max-width:64ch;margin-bottom:30px;">
       <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Install</div>
-      <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(26px,3vw,36px);line-height:1.1;margin:0;">Two lines in Claude. Or clone it.</h2>
+      <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(26px,3vw,36px);line-height:1.1;margin:0;">Two lines in Claude Code. One line everywhere else.</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
-      <div style="border:1px solid var(--border);border-radius:14px;padding:24px;background:var(--raised);">
-        <div style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--dim);margin-bottom:4px;">Recommended · plugin marketplace</div>
-        <div style="color:var(--muted);font-size:14px;margin-bottom:16px;">Add the marketplace, then install the suite.</div>
-        <div style="background:var(--bg);border:1px solid var(--border-strong);border-radius:10px;padding:12px 16px;font-family:var(--font-mono);font-size:13.5px;color:var(--text);margin-bottom:10px;overflow-x:auto;"><span style="color:var(--gold);">/plugin</span> marketplace add manutej/meta-suite</div>
-        <div style="background:var(--bg);border:1px solid var(--border-strong);border-radius:10px;padding:12px 16px;font-family:var(--font-mono);font-size:13.5px;color:var(--text);overflow-x:auto;"><span style="color:var(--gold);">/plugin</span> install meta-suite@meta-suite</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:20px;">
+      <div style="border:1px solid var(--border);border-radius:14px;padding:24px;background:var(--raised);min-width:0;">
+        <div style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--dim);margin-bottom:4px;">Recommended · Claude Code plugin</div>
+        <div style="color:var(--muted);font-size:14px;margin-bottom:16px;">Run inside any Claude Code session (CLI, desktop, web, IDE).</div>
+        <div style="background:var(--bg);border:1px solid var(--border-strong);border-radius:10px;padding:12px 16px;font-family:var(--font-mono);font-size:13.5px;color:var(--text);margin-bottom:10px;overflow-x:auto;"><span style="white-space:nowrap;"><span style="color:var(--gold);">/plugin</span> marketplace add</span> <span style="white-space:nowrap;">manutej/meta-suite</span></div>
+        <div style="background:var(--bg);border:1px solid var(--border-strong);border-radius:10px;padding:12px 16px;font-family:var(--font-mono);font-size:13.5px;color:var(--text);margin-bottom:10px;overflow-x:auto;"><span style="white-space:nowrap;"><span style="color:var(--gold);">/plugin</span> install</span> <span style="white-space:nowrap;">meta-suite@meta-suite</span></div>
+        <div style="color:var(--muted);font-size:13.5px;line-height:1.55;margin-top:6px;">Start a new session, then just describe the task. To call a skill directly, use its namespaced name: <code style="font-family:var(--font-mono);color:var(--text);white-space:nowrap;">/meta-suite:meta-review</code>.</div>
       </div>
-      <div style="border:1px solid var(--border);border-radius:14px;padding:24px;background:var(--raised);">
-        <div style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--dim);margin-bottom:4px;">Secondary · clone &amp; run local</div>
-        <div style="color:var(--muted);font-size:14px;margin-bottom:16px;">Pull the repo and point Claude at the directory.</div>
-        <div style="background:var(--bg);border:1px solid var(--border-strong);border-radius:10px;padding:12px 16px;font-family:var(--font-mono);font-size:13.5px;color:var(--text);margin-bottom:10px;overflow-x:auto;"><span style="color:var(--confirm);">git</span> clone https://github.com/manutej/meta-suite</div>
-        <div style="background:var(--bg);border:1px solid var(--border-strong);border-radius:10px;padding:12px 16px;font-family:var(--font-mono);font-size:13.5px;color:var(--text);overflow-x:auto;"><span style="color:var(--confirm);">claude</span> --plugin-dir ./meta-suite</div>
+      <div style="border:1px solid var(--border);border-radius:14px;padding:24px;background:var(--raised);min-width:0;">
+        <div style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--dim);margin-bottom:4px;">Codex · Cursor · Grok Build · Copilot · Gemini CLI</div>
+        <div style="color:var(--muted);font-size:14px;margin-bottom:16px;">One command installs all nine skills for the agents you name.</div>
+        <div style="background:var(--bg);border:1px solid var(--border-strong);border-radius:10px;padding:12px 16px;font-family:var(--font-mono);font-size:13.5px;color:var(--text);margin-bottom:10px;overflow-x:auto;"><span style="white-space:nowrap;"><span style="color:var(--confirm);">npx</span> skills add</span> <span style="white-space:nowrap;">manutej/meta-suite</span> <span style="white-space:nowrap;">--skill '*' -g</span> <span style="white-space:nowrap;">-a codex -a cursor -a grok</span></div>
+        <div style="color:var(--muted);font-size:13.5px;line-height:1.55;margin-top:6px;">Then invoke with <code style="font-family:var(--font-mono);color:var(--text);white-space:nowrap;">$meta-review</code> in Codex or <code style="font-family:var(--font-mono);color:var(--text);white-space:nowrap;">/meta-review</code> in Cursor and Grok, or just ask.</div>
+      </div>
+      <div style="border:1px solid var(--border);border-radius:14px;padding:24px;background:var(--raised);min-width:0;">
+        <div style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--dim);margin-bottom:4px;">Claude app · ChatGPT · Grok · any API</div>
+        <div style="color:var(--muted);font-size:14px;margin-bottom:16px;">Ready-made packages, no build step.</div>
+        <div style="color:var(--muted);font-size:13.5px;line-height:1.55;margin-top:6px;"><b style="color:var(--text);">Upload:</b> one zip per skill in <a href="https://github.com/manutej/meta-suite/tree/main/dist/upload" target="_blank" rel="noopener" style="color:var(--gold);">dist/upload</a> (claude.ai, Claude Desktop, ChatGPT Skills, Grok Skills, Claude &amp; OpenAI APIs).</div>
+        <div style="color:var(--muted);font-size:13.5px;line-height:1.55;margin-top:6px;"><b style="color:var(--text);">No skills support?</b> Paste <a href="https://github.com/manutej/meta-suite/blob/main/dist/instructions.md" target="_blank" rel="noopener" style="color:var(--gold);">instructions.md</a> into a Project and attach <a href="https://github.com/manutej/meta-suite/blob/main/dist/meta-suite-prompt.md" target="_blank" rel="noopener" style="color:var(--gold);">meta-suite-prompt.md</a>.</div>
+        <div style="color:var(--muted);font-size:13.5px;line-height:1.55;margin-top:6px;"><a href="https://github.com/manutej/meta-suite/blob/main/INSTALL.md" target="_blank" rel="noopener" style="color:var(--gold);">Step-by-step for every tool →</a></div>
       </div>
     </div>
   </section>

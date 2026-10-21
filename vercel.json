@@ -1,9 +1,6 @@
 {
   "cleanUrls": false,
   "rewrites": [
-    {
-      "source": "/",
-      "destination": "/index.html"
-    }
+    { "source": "/", "destination": "/Portfolio Hub.dc.html" }
   ]
 }

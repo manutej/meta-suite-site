@@ -1,2 +1,5 @@
 .DS_Store
 .vercel
+
+# Local QA (vibium screenshots/recordings) — never committed
+.review/
