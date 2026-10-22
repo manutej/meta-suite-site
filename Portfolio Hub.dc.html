@@ -3,6 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meta-Suite</title>
+<meta name="description" content="Nine task-agnostic meta-skills that emit the reusable structure solving a whole category of work. Works in Claude Code, the Claude app, Codex, Cursor, ChatGPT and Grok.">
+<meta property="og:title" content="Meta-Suite">
+<meta property="og:description" content="Nine task-agnostic meta-skills that emit the reusable structure solving a whole category of work. Works in Claude Code, the Claude app, Codex, Cursor, ChatGPT and Grok.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Ccircle cx=%278%27 cy=%278%27 r=%276%27 fill=%27%23d4a84b%27/%3E%3C/svg%3E">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -18,11 +25,14 @@ html{scroll-behavior:smooth;}
 body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);font-feature-settings:"ss01","cv11";line-height:1.6;-webkit-font-smoothing:antialiased;}
 
 /* mobile hardening */
-html,body{max-width:100%;overflow-x:hidden;}
+html,body{max-width:100%;overflow-x:clip;}
 img,svg,pre,code,table{max-width:100%;}
 svg{height:auto;}
 pre{overflow-x:auto;-webkit-overflow-scrolling:touch;}
 @media (max-width:760px){
+  header > div > :last-child > a:not(:last-child){display:none!important;}
+  [style*="grid-template-columns:1.35fr 1fr"],[style*="grid-template-columns: 1.35fr 1fr"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns:1.35fr 1fr"] > div,[style*="grid-template-columns: 1.35fr 1fr"] > div{border-right:0!important;}
   [style*="max-width:1080px"],[style*="max-width: 1080px"],
   [style*="max-width:960px"],[style*="max-width: 960px"],
   [style*="max-width:900px"],[style*="max-width: 900px"],
@@ -58,8 +68,8 @@ pre{overflow-x:auto;-webkit-overflow-scrolling:touch;}
   <!-- HERO -->
   <section style="max-width:1080px;margin:0 auto;padding:64px 28px 20px;">
     <div style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;">Portfolio index · manutej/meta-suite</div>
-    <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(38px,5.6vw,62px);line-height:1.02;letter-spacing:-.01em;margin:0;max-width:18ch;">Ten pages. One animation library. One idea.</h1>
-    <p style="color:var(--muted);font-size:18px;line-height:1.55;margin:22px 0 0;max-width:58ch;">A GitHub Pages set for the nine task-agnostic meta-skills — an overview and a page each — plus a library of custom SVG explainers for the concepts words struggle with.</p>
+    <h1 style="font-family:var(--font-display);font-weight:600;font-size:clamp(38px,5.6vw,62px);line-height:1.02;letter-spacing:-.01em;margin:0;max-width:18ch;">Eleven pages. One animation library. One idea.</h1>
+    <p style="color:var(--muted);font-size:18px;line-height:1.55;margin:22px 0 0;max-width:58ch;">The site for the nine task-agnostic meta-skills — an overview, an operating loop, and a page per skill — plus a library of custom SVG explainers for the concepts words struggle with.</p>
     <div style="display:flex;gap:32px;flex-wrap:wrap;margin-top:36px;padding-top:24px;border-top:1px solid var(--border);">
       <div><div style="font-family:var(--font-display);font-weight:600;font-size:28px;color:var(--gold);">11</div><div style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--dim);margin-top:2px;">Pages</div></div>
       <div><div style="font-family:var(--font-display);font-weight:600;font-size:28px;color:var(--gold);">11</div><div style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--dim);margin-top:2px;">Live now</div></div>
@@ -69,7 +79,7 @@ pre{overflow-x:auto;-webkit-overflow-scrolling:touch;}
 
   <!-- START HERE + LIBRARY -->
   <section style="max-width:1080px;margin:0 auto;padding:32px 28px 8px;">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;align-items:start;">
       <a href="Overview.dc.html" style="text-decoration:none;color:inherit;border:1px solid var(--gold);border-radius:16px;padding:26px;background:var(--surface);box-shadow:0 0 0 1px var(--gold-dim);position:relative;display:block;transition:transform .22s var(--ease),background .22s;" style-hover="transform:translateY(-4px);background:var(--raised);">
         <span style="position:absolute;top:18px;right:18px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#15110a;background:var(--gold);padding:3px 8px;border-radius:999px;">live</span>
         <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;color:var(--dim);">page 00</div>
@@ -78,12 +88,12 @@ pre{overflow-x:auto;-webkit-overflow-scrolling:touch;}
       </a>
       <a href="Animation Library.dc.html" style="text-decoration:none;color:inherit;border:1px solid var(--border);border-radius:16px;background:var(--surface);overflow:hidden;display:block;transition:transform .22s var(--ease),border-color .22s;" style-hover="transform:translateY(-4px);border-color:var(--border-strong);">
         <div style="padding:26px 26px 8px;position:relative;">
-          <span style="position:absolute;top:18px;right:18px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);border:1px solid rgba(212,168,75,.4);padding:3px 8px;border-radius:999px;">3 live</span>
+          <span style="position:absolute;top:18px;right:18px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);border:1px solid rgba(212,168,75,.4);padding:3px 8px;border-radius:999px;">6 live</span>
           <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;color:var(--dim);">library</div>
           <h2 style="font-family:var(--font-display);font-weight:600;font-size:26px;margin:8px 0 0;">Animation library →</h2>
           <p style="color:var(--muted);font-size:15px;margin:10px 0 0;">Custom SVG, canvas + timeline explainers. Embed any of them in a README or slide.</p>
         </div>
-        <dc-import name="Revision Loop" hint-size="100%,220px" style="display:block;width:100%;height:220px;border-top:1px solid var(--border);margin-top:12px;"></dc-import>
+        <dc-import name="Revision Loop" hint-size="100%,380px" style="display:block;width:100%;height:380px;border-top:1px solid var(--border);margin-top:12px;"></dc-import>
       </a>
     </div>
 

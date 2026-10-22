@@ -3,6 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Operating Loop Cycle · Meta-Suite</title>
+<meta name="description" content="Nine task-agnostic meta-skills that emit the reusable structure solving a whole category of work. Works in Claude Code, the Claude app, Codex, Cursor, ChatGPT and Grok.">
+<meta property="og:title" content="Operating Loop Cycle · Meta-Suite">
+<meta property="og:description" content="Nine task-agnostic meta-skills that emit the reusable structure solving a whole category of work. Works in Claude Code, the Claude app, Codex, Cursor, ChatGPT and Grok.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Ccircle cx=%278%27 cy=%278%27 r=%276%27 fill=%27%23d4a84b%27/%3E%3C/svg%3E">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -22,11 +29,14 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-sans
 [data-pausable]:hover,[data-pausable]:hover *{animation-play-state:paused !important;}
 
 /* mobile hardening */
-html,body{max-width:100%;overflow-x:hidden;}
+html,body{max-width:100%;overflow-x:clip;}
 img,svg,pre,code,table{max-width:100%;}
 svg{height:auto;}
 pre{overflow-x:auto;-webkit-overflow-scrolling:touch;}
 @media (max-width:760px){
+  header > div > :last-child > a:not(:last-child){display:none!important;}
+  [style*="grid-template-columns:1.35fr 1fr"],[style*="grid-template-columns: 1.35fr 1fr"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns:1.35fr 1fr"] > div,[style*="grid-template-columns: 1.35fr 1fr"] > div{border-right:0!important;}
   [style*="max-width:1080px"],[style*="max-width: 1080px"],
   [style*="max-width:960px"],[style*="max-width: 960px"],
   [style*="max-width:900px"],[style*="max-width: 900px"],
